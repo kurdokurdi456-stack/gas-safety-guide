@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ckb" dir="rtl" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src data:; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Gas Safety Guide | Sozdar Avdal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Noto+Sans+Arabic:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f2faf6;--panel:#fff;--ink:#0e2a22;--mute:#4a665d;--line:#d3e9de;--g:#0f9d6c;--g2:#0a7a54;--soft:#e3f6ec;--onG:#fff;--roomBg:#eef7f2;--grass:#d9f1e2;--det:#effaf4;
+--s0:#16a34a;--s1:#b7860b;--s2:#d9600b;--s3:#d62839;--s4:#7c3aed;--cur:#16a34a}
+[data-theme=dark]{--bg:#09150f;--panel:#10231b;--ink:#e9f6ef;--mute:#93b5a6;--line:#21463a;--g:#34d399;--g2:#1f9d72;--soft:#12302a;--onG:#06261b;--roomBg:#0d2018;--grass:#123327;--det:#0b1c15;
+--s0:#34d399;--s1:#facc15;--s2:#fb923c;--s3:#f87171;--s4:#c084fc}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth;scroll-padding-top:110px}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.8 Nunito,"Noto Sans Arabic","Segoe UI",system-ui,sans-serif;padding-bottom:env(safe-area-inset-bottom)}
+.wrap{max-width:960px;margin:0 auto;padding:0 16px}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.top{position:sticky;top:0;z-index:9;background:var(--panel);border-bottom:3px solid var(--g);padding-top:env(safe-area-inset-top)}
+.bar1{display:flex;gap:8px;align-items:center;justify-content:space-between;padding-block:8px}
+.lang{display:flex;gap:6px}
+.btn,.lang button,.ico,.tabs button,.chips button,.q button{font:inherit;font-weight:600;color:var(--ink);background:var(--panel);border:2px solid var(--g2);border-radius:14px;padding:4px 14px;cursor:pointer;box-shadow:0 3px 0 var(--g2);transition:transform .08s,box-shadow .08s}
+.btn:active,.lang button:active,.tabs button:active,.chips button:active,.q button:active{transform:translateY(2px);box-shadow:0 1px 0 var(--g2)}
+.btn[hidden]{display:none}
+.lang button[aria-pressed=true],.tabs button[aria-pressed=true]{background:var(--g);color:var(--onG);font-weight:800}
+nav .wrap{display:flex;gap:8px;overflow-x:auto;padding-block:8px}
+nav a{white-space:nowrap;color:var(--ink);text-decoration:none;font-weight:600;font-size:15px;padding:2px 14px;border-radius:99px;background:var(--soft)}
+nav a:hover{background:var(--g);color:var(--onG)}
+button:focus-visible,input:focus-visible,a:focus-visible{outline:3px solid var(--g);outline-offset:2px}
+.hero{padding:30px 16px 8px;max-width:960px;margin:0 auto}
+@media(min-width:760px){.hero{grid-template-columns:1.5fr .7fr}}
+.chip{display:inline-flex;gap:10px;align-items:center;background:var(--panel);border:2px solid var(--line);border-radius:99px;padding:4px 16px 4px 6px;font-weight:800}
+.chip .flag{border-radius:6px}
+h1{font-size:clamp(30px,7vw,52px);line-height:1.3;font-weight:800;margin:14px 0 10px}
+.lead{color:var(--mute);font-size:18px;max-width:34em}
+.mw{display:flex;flex-direction:column;align-items:center;gap:6px}
+.mas{width:130px;animation:bob 3s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+.bub{background:var(--panel);border:2px solid var(--g2);border-radius:18px;padding:8px 14px;font-weight:600;font-size:15px;line-height:1.6;text-align:center;min-height:5.2em;display:grid;place-items:center}
+.sec{margin:22px 0;padding:22px 20px;background:var(--panel);border:2px solid var(--line);border-radius:26px;box-shadow:0 10px 26px #0f9d6c14}
+h2{font-size:clamp(22px,5vw,30px);font-weight:800;line-height:1.4;display:flex;gap:12px;align-items:center}
+.ic{width:46px;height:46px;border-radius:14px;background:var(--soft);display:grid;place-items:center;font-size:25px;flex:none}
+.sub{color:var(--mute);margin:8px 0 16px;max-width:42em}
+.info{color:var(--mute);font-size:15px}
+.tabs,.chips,.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.tabs{margin-bottom:12px}.chips{margin-top:14px}.chips button{font-size:14px;padding:1px 10px}.row{margin-top:12px}
+.det{background:var(--det);border:2px solid var(--line);border-radius:22px;padding:16px}
+.gn{font-weight:800;font-size:19px}
+.rd{display:flex;align-items:center;justify-content:center;gap:14px;direction:ltr}
+.face{font-size:clamp(46px,12vw,74px);line-height:1}
+.read{text-align:center;font-weight:800;font-size:clamp(46px,13vw,84px);line-height:1.15;color:var(--cur);font-variant-numeric:tabular-nums;transition:color .25s}
+.read span{font-size:.28em;color:var(--mute);margin-inline-start:6px;font-weight:600}
+.bar{height:16px;background:var(--line);border-radius:10px;overflow:hidden;margin:8px 0 14px}
+.bar i{display:block;height:100%;width:0;background:var(--cur);border-radius:10px;transition:width .2s,background .25s}
+input[type=range]{width:100%;direction:ltr;accent-color:var(--g);height:34px}
+.status{font-size:19px;font-weight:800;color:var(--cur);margin-top:6px;min-height:3.4em;line-height:1.55}
+.pill{display:inline-block;margin-top:4px;padding:2px 14px;border-radius:99px;background:var(--soft);font-size:15px;font-weight:600}
+.shake,.nope{animation:sh .35s infinite}.nope{animation-iteration-count:2}
+@keyframes sh{50%{transform:translateX(4px)}}
+canvas{width:100%;height:auto;border-radius:18px;border:2px solid var(--line);display:block}
+.grow{flex:1;min-width:200px;font-weight:600}
+.scene{width:100%;max-width:420px;display:block;margin:0 auto;border-radius:22px}
+.scene.wide{max-width:520px}
+.mp circle{fill:var(--panel);stroke:var(--g2);stroke-width:3;cursor:pointer}
+.mp text{text-anchor:middle;font-weight:800;fill:var(--ink);pointer-events:none;font-size:18px}
+.mp.good circle{fill:var(--s0)}.mp.ok circle{fill:#ffd23f}.mp.bad circle{fill:var(--s3)}
+#who{transition:transform 1.2s ease}
+.pl{fill:#9bd45a;opacity:.2;transform-box:fill-box;transform-origin:center;animation:drift 3s ease-out infinite}
+@keyframes drift{from{transform:translate(0,0) scale(.6);opacity:.2}to{transform:translate(var(--dx),var(--dy)) scale(1.9);opacity:.75}}
+@media(prefers-reduced-motion:reduce){.pl{animation:none;transform:translate(var(--dx),var(--dy)) scale(1.6);opacity:.6}.mas,.shake,.nope{animation:none}html{scroll-behavior:auto}}
+#cloud{fill:#9bd45a;transition:opacity .6s}
+#sw,#swe{transition:transform 1s ease}
+.sl{display:grid;gap:8px;margin-top:12px}
+.sl button{text-align:start;padding:8px 14px}
+.sd{padding-inline-start:0;list-style:none;display:grid;gap:6px;margin-top:10px}
+.sd li{background:var(--soft);border-radius:14px;padding:8px 14px;border-inline-start:6px solid var(--s0)}
+.sd small{display:block;color:var(--mute)}
+.fb{font-weight:800;margin-top:10px;min-height:1.8em}
+.hg{display:grid;grid-template-columns:repeat(7,1fr);gap:6px;direction:ltr;max-width:520px;margin:0 auto}
+.cell{aspect-ratio:1;border-radius:12px;border:2px solid var(--line);background:var(--soft);font:800 13px/1 Nunito,sans-serif;color:#0b1f17;cursor:pointer;padding:0}
+.q h3{font-size:19px;margin-bottom:12px}
+.q .o{display:grid;gap:8px}.q button{text-align:start;padding:9px 14px}
+.q button.ok{background:color-mix(in srgb,var(--s0) 28%,transparent)}
+.q button.no{background:color-mix(in srgb,var(--s3) 28%,transparent)}
+.exp{margin-top:10px;color:var(--mute);min-height:2.5em}
+.nx{margin-top:10px;background:var(--g)!important;color:var(--onG)!important}
+.btn:disabled{opacity:.4;cursor:default;box-shadow:none}.sd li{opacity:.5;border-inline-start-color:var(--line)}.sd li.done,.sd li.cur{opacity:1}.sd li.done{border-inline-start-color:var(--s0)}.sd li.cur{border-inline-start-color:var(--s2);font-weight:800}
+.chip{gap:12px;padding:5px 18px 5px 5px}.chip .av{width:64px;height:64px;border-radius:50%;object-fit:cover;border:3px solid var(--g);flex:none}
+.gt{width:100%;border-collapse:collapse;margin-top:12px;font-size:15px}.gt th,.gt td{padding:4px 8px;border-bottom:1px solid var(--line);text-align:start}.gt th{color:var(--mute);font-weight:600}
+.srcl{padding-inline-start:20px;display:grid;gap:6px}.srcl a{color:var(--g2);font-weight:600;word-break:break-word}.srcl li{font-size:15px}
+footer{padding:26px 0 50px;color:var(--mute);font-size:15px;text-align:center}
+footer .flag{margin:6px auto;display:block;border-radius:6px}
+</style>
+</head>
+<body>
+<div class="top">
+<div class="wrap bar1">
+<div class="lang" id="lang"><button data-l="2">کوردی</button><button data-l="1">English</button><button data-l="0">العربية</button></div>
+<button class="ico" id="thm" aria-label="theme">🌙</button>
+</div>
+<nav><div class="wrap" id="nav"></div></nav>
+</div>
+
+<header class="hero">
+<div>
+<div class="chip"><img class="av" src="data:image/jpeg;base64,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" alt="Sozdar Avdal" width="64" height="64"><span class="ltr">Sozdar Avdal</span><span id="fl1"></span></div>
+<h1 data-t="h1"></h1>
+<p class="lead" data-t="lead"></p>
+<p class="info" style="margin-top:8px" data-t="by"></p>
+</div>
+</header>
+
+<main class="wrap">
+<section class="sec" id="sim">
+<h2><span class="ic">🧪</span><span data-t="sim_h"></span></h2><p class="sub" data-t="sim_s"></p>
+<div class="det" id="det">
+<div class="tabs" id="tabs"></div>
+<div class="gn" id="gn"></div><div class="info" id="gi"></div><div class="info" id="gsrc" dir="auto" style="font-size:13px"></div>
+<div class="rd"><div class="face" id="face"></div><div class="read" id="read"></div></div>
+<div class="bar"><i id="fill"></i></div>
+<input type="range" id="rng" aria-label="concentration">
+<div class="status" id="st"></div>
+<span class="pill" id="sm"></span> <span class="pill" id="lel"></span>
+<div class="chips" id="chips"></div>
+</div>
+</section>
+
+<section class="sec" id="lab">
+<h2><span class="ic">☁️</span><span data-t="lab_h"></span></h2><p class="sub" data-t="lab_s"></p>
+<div class="tabs" id="lg"></div><div class="info" id="ld" style="margin-bottom:8px"></div>
+<canvas id="cv" width="600" height="300" aria-label="gas cloud"></canvas>
+<div class="row"><label class="grow"><span data-t="detH"></span><input type="range" id="ldh" min="0" max="100" value="50"></label></div>
+<div class="row"><button class="btn" id="lb"></button><button class="btn" id="lr" data-t="reset"></button><b id="lr2"></b></div>
+<p class="info" style="margin-top:8px" data-t="lab_l"></p>
+</section>
+
+<section class="sec" id="flam">
+<h2><span class="ic">🔥</span><span data-t="fl_h"></span></h2><p class="sub" data-t="fl_s"></p>
+<div class="tabs" id="fg"></div>
+<svg id="fz" class="scene wide" viewBox="0 0 300 130" role="img" aria-label="flammable range">
+<rect id="z1" x="20" y="50" height="26" rx="4" fill="#90a4ae"/><rect id="z2" y="50" height="26" fill="#ef6c00"/><rect id="z3" y="50" height="26" rx="4" fill="#7e57c2"/>
+<text id="lt" y="94" font-size="11" text-anchor="middle" fill="var(--ink)" style="direction:ltr"></text><text id="ut" y="94" font-size="11" text-anchor="middle" fill="var(--ink)" style="direction:ltr"></text>
+<line id="mk" y1="36" y2="86" stroke="var(--ink)" stroke-width="3"/>
+<path id="fire" d="M0 0C-10-14-4-22 0-34 8-22 14-14 0 0Z" fill="#ff6d00"/>
+</svg>
+<div class="row"><b class="ltr" id="fv"></b></div>
+<input type="range" id="fr" min="0" aria-label="gas in air %">
+<div class="status" id="fst" style="min-height:2.6em"></div>
+</section>
+
+<section class="sec" id="vent">
+<h2><span class="ic">🌀</span><span data-t="v_h"></span></h2><p class="sub" data-t="v_s"></p>
+<label class="grow"><span data-t="v_v"></span>: <b class="ltr" id="vvv"></b><input type="range" id="vv" min="5" max="500" step="5" value="60"></label>
+<label class="grow"><span data-t="v_q"></span>: <b class="ltr" id="vqv"></b><input type="range" id="vq" min="1" max="100" step="1" value="10"></label>
+<label class="grow"><span data-t="v_c"></span>: <b class="ltr" id="vcv"></b><input type="range" id="vc" min="10" max="1000" step="10" value="100"></label>
+<label class="grow"><span data-t="v_t"></span>: <b class="ltr" id="vtv"></b><input type="range" id="vt" min="1" max="100" step="1" value="10"></label>
+<svg class="scene wide" viewBox="0 0 300 150" role="img" aria-label="concentration vs time" style="background:var(--roomBg);margin-top:10px">
+<line x1="30" y1="10" x2="30" y2="120" stroke="var(--mute)" stroke-width="2"/><line x1="30" y1="120" x2="290" y2="120" stroke="var(--mute)" stroke-width="2"/>
+<polyline id="vl" fill="none" stroke="var(--g2)" stroke-width="3"/>
+<line id="vtl" x1="30" x2="290" stroke="var(--s2)" stroke-width="2" stroke-dasharray="5 4"/><line id="vx" y1="10" y2="120" stroke="var(--s2)" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="34" y="14" font-size="10" fill="var(--mute)">ppm</text><text x="290" y="138" font-size="10" text-anchor="end" fill="var(--mute)">min</text><text id="vte" x="290" y="132" font-size="10" text-anchor="end" fill="var(--mute)"></text><text x="30" y="132" font-size="10" fill="var(--mute)">0</text>
+</svg>
+<div class="status" id="vr" style="min-height:2.4em;color:var(--g2)"></div>
+<p class="info ltr">C(t) = C₀ · e^(−Q·t / V)</p><p class="info" data-t="v_note"></p>
+</section>
+
+<section class="sec" id="gc">
+<h2><span class="ic">⚗️</span><span data-t="gc_h"></span></h2><p class="sub" data-t="gc_s"></p>
+<svg class="scene wide" viewBox="0 0 300 70" role="img" aria-label="GC schematic" style="max-width:560px;background:var(--roomBg)">
+<g font-size="10" text-anchor="middle" fill="var(--ink)" style="direction:ltr">
+<path d="M60 35H84M216 35H240" stroke="var(--mute)" stroke-width="2"/>
+<rect x="8" y="18" width="52" height="34" rx="8" fill="var(--soft)" stroke="var(--g2)" stroke-width="2"/><text x="34" y="39">Injector</text>
+<rect x="84" y="10" width="132" height="50" rx="10" fill="var(--soft)" stroke="var(--s2)" stroke-width="2"/><text x="150" y="26">Column · Oven</text><text id="gct" x="150" y="48" font-weight="800"></text>
+<rect x="240" y="18" width="52" height="34" rx="8" fill="var(--soft)" stroke="var(--g2)" stroke-width="2"/><text x="266" y="39">FID</text>
+<circle id="gcd" cx="34" cy="35" r="5" fill="#ff8f00" opacity="0"/>
+</g></svg>
+<div class="tabs" id="gcs" style="margin-top:12px"></div>
+<label class="grow"><span data-t="gc_temp"></span>: <b class="ltr" id="gtv"></b><input type="range" id="gt" min="30" max="150" step="5" value="60"></label>
+<label class="grow"><span data-t="gc_flow"></span>: <b class="ltr" id="gfv"></b><input type="range" id="gf" min="0.5" max="4" step="0.1" value="2"></label>
+<label class="grow"><span data-t="gc_zoom"></span>: <b class="ltr" id="gzv"></b><input type="range" id="gz" min="1" max="50" step="1" value="1"></label>
+<svg id="gcv" class="scene wide" viewBox="0 0 320 170" role="img" aria-label="chromatogram" style="max-width:560px;background:var(--roomBg);margin-top:10px"></svg>
+<div class="row"><button class="btn" id="gci"></button><b id="gcr"></b></div>
+<table class="gt" id="gtb"></table>
+<p class="info" data-t="gc_note"></p>
+</section>
+
+<section class="sec" id="steps">
+<h2><span class="ic">🪖</span><span data-t="st_h"></span></h2><p class="sub" data-t="st_s"></p>
+<div class="tabs" id="stabs"></div>
+<svg class="scene wide" viewBox="0 0 300 130" aria-hidden="true">
+<rect width="300" height="130" rx="18" fill="var(--grass)"/>
+<g id="h1"><polygon points="30,70 70,36 110,70" fill="#c0392b"/><rect x="38" y="70" width="64" height="44" fill="#f5e6c8" stroke="#8d6e63" stroke-width="2"/><rect x="62" y="88" width="16" height="26" fill="#8d6e63"/></g>
+<g id="h2"><rect x="30" y="52" width="80" height="62" rx="26" fill="#90a4ae" stroke="#546e7a" stroke-width="3"/><circle cx="70" cy="52" r="7" fill="#546e7a"/></g>
+<g id="cloud"><circle cx="45" cy="62" r="26"/><circle cx="80" cy="50" r="30"/><circle cx="104" cy="76" r="24"/></g>
+</svg>
+<div class="info" style="margin-top:8px" data-t="haz"></div><div class="bar"><i id="mt"></i></div>
+<div class="row"><button class="btn" id="sb1"></button><b id="sn" class="ltr"></b><button class="btn" id="sb2"></button></div>
+<ul class="sd" id="sd"></ul><p class="fb" id="sfb"></p>
+</section>
+
+<section class="sec" id="quiz">
+<h2><span class="ic">🎯</span><span data-t="quiz_h"></span></h2>
+<div class="q" style="margin-top:14px" id="qz"></div>
+</section>
+<section class="sec" id="src">
+<h2><span class="ic">📚</span><span data-t="src_h"></span></h2><p class="sub" data-t="src_s"></p>
+<ul class="srcl" id="srcl"></ul><div class="info" data-t="src_note" style="margin-top:12px"></div>
+</section>
+</main>
+
+<footer><div class="wrap">
+<span id="fl2"></span>
+<p data-t="disc"></p><p data-t="disc2" style="margin-top:4px"></p>
+<p style="margin-top:8px"><b class="ltr">Sozdar Avdal</b> · <span data-t="by"></span></p>
+<button class="btn" id="shr" style="margin-top:12px"></button>
+</div></footer>
+
+<script>
+const D={"T": {"sm": {"n": ["👃 بلا رائحة: لا تعتمد على أنفك", "👃 Odorless: don't rely on your nose", "👃 بێ بۆنە: پشت بە لوتت مەبەستە"], "h0": ["👃 لا رائحة بعد", "👃 No smell yet", "👃 هێشتا بۆن نییە"], "h1": ["👃 تشم بيضاً فاسداً: أنفك ينذرك", "👃 Rotten-egg smell: your nose warns you", "👃 بۆنی هێلکەی بۆگەن: لوتت ئاگادارت دەکاتەوە"], "h2": ["👃❌ شلل الشم: لا ينذرك أنفك بعد الآن", "👃❌ Smell paralysis: your nose can't warn you", "👃❌ هەستی بۆن مردووە: لوتت ئیتر ئاگادارت ناکاتەوە"], "p": ["👃 رائحة خانقة تشمّها", "👃 Pungent: you can smell it", "👃 بۆنی تیژە: بۆنی دەکەیت"], "b": ["👃 رائحة حلوة، لا يُعتمد عليها", "👃 Sweet smell, not reliable", "👃 بۆنی شیرینە، متمانەی پێ ناکرێت"], "l": ["👃 معطَّر عمداً، وقد تضعف الرائحة (أسطوانة صدئة)", "👃 Odorized, but odor can fade (rusty cylinder)", "👃 بە ئەنقەست بۆنکراوە، بەڵام بۆنەکە لاواز دەبێت (بوتڵی زەنگاوی)"]}, "nx": ["السؤال التالي", "Next question", "پرسیاری دواتر"], "sc": ["نتيجتك", "Your score", "ئەنجامەکەت"], "ag": ["أعد الاختبار", "Retry", "دووبارە"], "res": ["عرض النتيجة", "Show score", "ئەنجام پیشان بدە"], "share": ["شارك الدليل", "Share this guide", "ئەم ڕێبەرە بڵاو بکەرەوە"], "copied": ["تم نسخ الرابط", "Link copied", "بەستەرەکە کۆپی کرا"], "quiz_h": ["اختبر نفسك", "Test yourself", "خۆت تاقی بکەرەوە"], "by": ["طالب هندسة النفط · جامعة زاخو", "Petroleum Engineering student · University of Zakho", "قوتابیی ئەندازیاریی نەوت · زانکۆی زاخۆ"], "sim_h": ["جرّب الغازات بنفسك", "Try the gases yourself", "گازەکان خۆت تاقی بکەرەوە"], "sim_s": ["اختر الغاز، ثم حرّك المؤشر أو اضغط مستوى جاهزاً.", "Pick a gas, then drag the slider or tap a preset level.", "گازێک هەڵبژێرە، پاشان سلایدەر بجوڵێنە یان ئاستێکی ئامادە دابگرە."]}, "G": {"h2s": {"f": "H₂S", "n": ["كبريتيد الهيدروجين", "Hydrogen sulfide", "هایدرۆجین سەڵفاید"], "p": ["أثقل من الهواء 1.2×، من الآبار الحامضة والمصافي", "1.2× heavier than air, from sour wells and refineries", "1.2 جار قورستر لە هەوا، لە بیرە ترشەکان و پاڵاوگەکان"], "u": "ppm", "max": 1000, "st": 1, "lv": [[0, 0, ["آمن", "Safe", "سەلامەت"]], [1, 0, ["عتبة الرائحة (0.01 إلى 1.5 ppm): رائحة بيض فاسد", "Odor threshold (0.01 to 1.5 ppm): rotten-egg smell", "سنووری بۆن (0.01 بۆ 1.5 ppm): بۆنی هێلکەی بۆگەن"]], [2, 1, ["2 إلى 5 ppm: غثيان ودمع وصداع مع التعرض المطوّل، وضيق تنفس لدى بعض مرضى الربو", "2 to 5 ppm: nausea, tearing eyes and headaches with prolonged exposure; airway problems in some asthma patients", "2 بۆ 5 ppm: دڵتێکەوتن و فرمێسکی چاو و سەرئێشە لە بەرکەوتنی درێژخایەن؛ کێشەی هەناسە لە هەندێک نەخۆشی ئەزمە"]], [10, 1, ["10 ppm: سقف NIOSH (10 دقائق)، وبداية تهيج العين", "10 ppm: NIOSH 10-minute ceiling; eye irritation begins", "10 ppm: سنووری سەرووی NIOSH (10 خولەک)؛ ئازاری چاو دەست پێدەکات"]], [20, 2, ["20 ppm: سقف OSHA للصناعة العامة؛ تعب وصداع ودوار وضعف الذاكرة", "20 ppm: OSHA general-industry ceiling; fatigue, headache, dizziness, poor memory", "20 ppm: سنووری سەرووی OSHA بۆ پیشەسازیی گشتی؛ ماندووبوون، سەرئێشە، سەرگێژ، لاوازیی یادگە"]], [50, 2, ["50 إلى 100 ppm: التهاب ملتحمة وتهيج تنفسي بعد ساعة", "50 to 100 ppm: conjunctivitis and respiratory irritation after 1 hour", "50 بۆ 100 ppm: ئاوسانی ملتەحیمە و ئازاری هەناسە دوای کاتژمێرێک"]], [100, 3, ["100 ppm: خطر فوري IDLH؛ سعال وفقدان الشم بعد 2 إلى 15 دقيقة ونعاس بعد 15 إلى 30 دقيقة", "100 ppm: IDLH; coughing, loss of smell after 2 to 15 minutes, drowsiness after 15 to 30 minutes", "100 ppm: IDLH؛ کۆکە و لەدەستدانی بۆن دوای 2 بۆ 15 خولەک و خەوالوویی دوای 15 بۆ 30 خولەک"]], [200, 3, ["200 إلى 300 ppm: التهاب شديد، وقد تحدث وذمة رئوية مع التعرض المطوّل", "200 to 300 ppm: marked conjunctivitis; pulmonary edema may occur with prolonged exposure", "200 بۆ 300 ppm: ئاوسانی توند؛ لەوانەیە ئاوسانی سییەکان ڕووبدات لە بەرکەوتنی درێژخایەن"]], [500, 4, ["500 إلى 700 ppm: ترنّح وانهيار خلال 5 دقائق، والوفاة بعد 30 إلى 60 دقيقة", "500 to 700 ppm: staggering and collapse in 5 minutes; death after 30 to 60 minutes", "500 بۆ 700 ppm: لەرزین و کەوتن لە 5 خولەکدا؛ مردن دوای 30 بۆ 60 خولەک"]], [700, 4, ["700 إلى 1000 ppm: فقدان وعي سريع (سقوط خلال نفس أو نفسين) وتوقف التنفس والوفاة خلال دقائق", "700 to 1000 ppm: rapid unconsciousness (knockdown in 1 to 2 breaths), breathing stops, death within minutes", "700 بۆ 1000 ppm: بێهۆشیی خێرا (کەوتن لە هەناسەیەک یان دوو)، هەناسە دەوەستێت، مردن لە چەند خولەکێکدا"]], [1000, 4, ["1000 إلى 2000 ppm: وفاة شبه فورية", "1000 to 2000 ppm: nearly instant death", "1000 بۆ 2000 ppm: مردنی نزیک بە دەستبەجێ"]]], "src": "OSHA H₂S Hazards · NIOSH NPG · NIOSH IDLH"}, "ch4": {"f": "CH₄", "n": ["الميثان", "Methane", "میسان"], "p": ["أخف من الهواء، بلا رائحة، المكوّن الرئيسي للغاز الطبيعي", "Lighter than air, odorless, main part of natural gas", "لە هەوا سووکترە، بێ بۆنە، بەشی سەرەکیی گازی سروشتییە"], "u": "%", "max": 20, "st": 0.1, "lel": 5, "lv": [[0, 0, ["آمن", "Safe", "سەلامەت"]], [0.5, 1, ["0.5%: نحو 10% من LEL، وهو الحد المعتاد للدخول المقبول (أقل من 10% LEL)", "0.5%: about 10% of LEL, the usual limit for acceptable entry (below 10% LEL)", "0.5%: نزیکەی 10%ی LEL، سنووری باوی چوونە ژوورەوە (کەمتر لە 10% LEL)"]], [2.5, 2, ["2.5%: نصف LEL؛ أبعد كل مصادر الشرر وهوِّ المكان", "2.5%: half of LEL; remove all ignition sources and ventilate", "2.5%: نیوەی LEL؛ هەموو سەرچاوەکانی پرژەی ئاگر لابەرە و هەواگۆڕکێ بکە"]], [5, 3, ["5%: LEL، الحد الأدنى للاشتعال؛ أي شرارة تكفي", "5%: LEL, the lower flammable limit; any spark can ignite it", "5%: LEL، سنووری خوارووی سووتان؛ هەر پرژەیەکی ئاگر دەتوانێت بیگرێنێت"]], [15, 3, ["فوق 15% (UEL): غني جداً، لكنه يشتعل عند اختلاطه بالهواء، وهو خانق (يزيح الأكسجين)", "Above 15% (UEL): too rich, but burns where it mixes with air; also an asphyxiant (displaces oxygen)", "سەروو 15% (UEL): زۆر چڕە، بەڵام لەگەڵ هەوا تێکەڵ ببێت دەسووتێت؛ هەروەها خنکێنەرە (ئۆکسجین دەردەکات)"]]], "src": "NOAA CAMEO · ILO ICSC 0291 · OSHA 1910.146"}, "co2": {"f": "CO₂", "n": ["ثاني أكسيد الكربون", "Carbon dioxide", "کاربۆن دای ئۆکسید"], "p": ["أثقل من الهواء 1.5×، بلا رائحة، يخنق في الحُفَر والخزانات", "1.5× heavier than air, odorless, suffocates in pits and tanks", "1.5 جار قورستر لە هەوا، بێ بۆنە، لە چاڵ و تانکەکاندا دەخنکێنێت"], "u": "%", "max": 10, "st": 0.1, "lv": [[0, 0, ["هواء طبيعي (نحو 0.04%)", "Normal air (about 0.04%)", "هەوای ئاسایی (نزیکەی 0.04%)"]], [0.5, 1, ["0.5% (5000 ppm): حد OSHA وNIOSH لمتوسط 8 ساعات", "0.5% (5000 ppm): OSHA and NIOSH 8-hour average limit", "0.5% (5000 ppm): سنووری تێکڕای 8 کاتژمێری OSHA و NIOSH"]], [3, 2, ["3% (30,000 ppm): حد NIOSH القصير الأمد", "3% (30,000 ppm): NIOSH short-term limit", "3% (30,000 ppm): سنووری کورتخایەنی NIOSH"]], [4, 3, ["4% (40,000 ppm): IDLH؛ تشوش ودوار", "4% (40,000 ppm): IDLH; confusion and dizziness", "4% (40,000 ppm): IDLH؛ تێکچوونی هۆش و سەرگێژ"]], [5, 4, ["فوق 5%: تأثيرات تعيق الهروب (فرط ثاني أكسيد الكربون في الدم)", "Above 5%: effects that impair escape (hypercapnia)", "سەروو 5%: کاریگەرییەک کە ڕێگری لە ڕاکردن دەکات (hypercapnia)"]]], "src": "NIOSH NPG · DOE PAC database"}, "co": {"f": "CO", "n": ["أول أكسيد الكربون", "Carbon monoxide", "کاربۆن مۆنۆکسید"], "p": ["بلا رائحة، من احتراق ناقص: مولدات وشعلات", "Odorless, from incomplete combustion: generators and flares", "بێ بۆنە، لە سووتانی ناتەواو دێت: بەرهەمهێنەری کارەبا و فلەیر"], "u": "ppm", "max": 3200, "st": 10, "lv": [[0, 0, ["آمن", "Safe", "سەلامەت"]], [35, 1, ["35 ppm: حد NIOSH لمتوسط 8 ساعات (حد OSHA هو 50)", "35 ppm: NIOSH 8-hour limit (the OSHA limit is 50)", "35 ppm: سنووری NIOSH بۆ 8 کاتژمێر (سنووری OSHA 50ـە)"]], [50, 1, ["50 ppm: حد OSHA لمتوسط 8 ساعات", "50 ppm: OSHA 8-hour limit", "50 ppm: سنووری OSHA بۆ 8 کاتژمێر"]], [200, 2, ["200 ppm: سقف NIOSH؛ صداع خفيف خلال 2 إلى 3 ساعات", "200 ppm: NIOSH ceiling; slight headache within 2 to 3 hours", "200 ppm: سنووری سەرووی NIOSH؛ سەرئێشەی سووک لە 2 بۆ 3 کاتژمێردا"]], [400, 2, ["400 ppm: صداع وغثيان خلال 1 إلى 2 ساعة", "400 ppm: headache and nausea within 1 to 2 hours", "400 ppm: سەرئێشە و دڵتێکەوتن لە 1 بۆ 2 کاتژمێردا"]], [800, 3, ["800 ppm: صداع ودوار وغثيان خلال 45 دقيقة، وقد يحدث انهيار ووفاة خلال ساعتين", "800 ppm: headache, dizziness and nausea within 45 minutes; collapse and possible death within 2 hours", "800 ppm: سەرئێشە و سەرگێژ و دڵتێکەوتن لە 45 خولەکدا؛ لەوانەیە کەوتن و مردن لە 2 کاتژمێردا ڕووبدات"]], [1200, 4, ["1200 ppm: IDLH (خطر فوري)", "1200 ppm: IDLH (immediate danger)", "1200 ppm: IDLH (مەترسیی دەستبەجێ)"]], [1600, 4, ["1600 ppm: أعراض خلال 20 دقيقة، وقد يحدث انهيار ووفاة خلال ساعة", "1600 ppm: symptoms within 20 minutes; collapse and possible death within 1 hour", "1600 ppm: نیشانە لە 20 خولەکدا؛ لەوانەیە کەوتن و مردن لە کاتژمێرێکدا ڕووبدات"]], [3200, 4, ["3200 ppm: صداع ودوار خلال 5 إلى 10 دقائق، وفقدان وعي وخطر وفاة خلال 30 دقيقة", "3200 ppm: headache and dizziness within 5 to 10 minutes; unconsciousness and danger of death within 30 minutes", "3200 ppm: سەرئێشە و سەرگێژ لە 5 بۆ 10 خولەکدا؛ بێهۆشی و مەترسیی مردن لە 30 خولەکدا"]]], "src": "NIOSH NPG · NIOSH IDLH · Virginia Tech EHSS"}, "so2": {"f": "SO₂", "n": ["ثاني أكسيد الكبريت", "Sulfur dioxide", "سەڵفەر دای ئۆکسید"], "p": ["غاز أثقل من الهواء (2.26×) برائحة لاذعة، ينتج من حرق H₂S في الشعلات ووحدات الكبريت", "Heavier than air (2.26×) with a pungent odor; made when H₂S burns in flares and sulfur units", "لە هەوا قورستر (2.26×) بە بۆنی تیژ؛ لە سووتانی H₂S لە فلەیر و یەکەکانی گۆگرد دروست دەبێت"], "u": "ppm", "max": 150, "st": 1, "s": "p", "lv": [[0, 0, ["آمن", "Safe", "سەلامەت"]], [2, 1, ["2 ppm: حد NIOSH لمتوسط 8 ساعات؛ غاز خانق برائحة لاذعة", "2 ppm: NIOSH 8-hour limit; irritating gas with a pungent odor", "2 ppm: سنووری NIOSH بۆ 8 کاتژمێر؛ گازێکی ئازاردەر بە بۆنی تیژ"]], [5, 2, ["5 ppm: حد OSHA، وحد NIOSH القصير الأمد؛ تهيج العين والأنف والحلق وسعال", "5 ppm: OSHA limit and NIOSH short-term limit; eye, nose and throat irritation, cough", "5 ppm: سنووری OSHA و سنووری کورتخایەنی NIOSH؛ ئازاری چاو و لووت و گەروو و کۆکە"]], [20, 3, ["20 ppm: مستوى إرشادي للطوارئ لمدة 30 دقيقة (EEGL)؛ اختناق وسعال وتشنج قصبي محتمل", "20 ppm: 30-minute emergency guidance level (EEGL); choking, cough, possible bronchoconstriction", "20 ppm: ئاستی ڕێنمایی فریاکەوتن بۆ 30 خولەک (EEGL)؛ خنکان و کۆکە و ڕەنگە تەنگبوونی بۆڕییەکانی هەناسە"]], [100, 4, ["100 ppm: IDLH؛ نحو أقصى ما يُحتمل لمدة نصف ساعة إلى ساعة (50 إلى 100)", "100 ppm: IDLH; about the most that can be tolerated for 0.5 to 1 hour (50 to 100)", "100 ppm: IDLH؛ نزیکەی زۆرترین چڕی کە بۆ نیو تا یەک کاتژمێر هەڵدەگیرێت (50 بۆ 100)"]]], "src": "NIOSH NPG · NIOSH IDLH"}, "c6h6": {"f": "C₆H₆", "n": ["البنزين العطري (Benzene)", "Benzene", "بەنزین (Benzene)"], "p": ["بخار سائل متطاير يسبب السرطان، من النفط الخام والمصافي", "Vapor of a volatile liquid, causes cancer, from crude oil and refineries", "هەڵمی شلەیەکی بەلەزە، شێرپەنجەزایە، لە نەوتی خاو و پاڵاوگەکان"], "u": "ppm", "max": 600, "st": 1, "s": "b", "lv": [[0, 0, ["آمن", "Safe", "سەلامەت"]], [0.1, 1, ["0.1 ppm: حد NIOSH (مسرطن محتمل): أبقِه أقل ما يمكن", "0.1 ppm: NIOSH limit (potential carcinogen): keep as low as possible", "0.1 ppm: سنووری NIOSH (شێرپەنجەزای گریمانەکراو): تا دەکرێت کەمی بکەرەوە"]], [1, 1, ["1 ppm: حد OSHA لمتوسط 8 ساعات", "1 ppm: OSHA 8-hour limit", "1 ppm: سنووری OSHA بۆ 8 کاتژمێر"]], [5, 2, ["5 ppm: حد OSHA القصير الأمد (15 دقيقة)", "5 ppm: OSHA short-term limit (15 minutes)", "5 ppm: سنووری کورتخایەنی OSHA (15 خولەک)"]], [50, 2, ["50 إلى 150 ppm لمدة نحو 5 ساعات: صداع وخمول وضعف", "50 to 150 ppm for about 5 hours: headache, lassitude and weakness", "50 بۆ 150 ppm بۆ نزیکەی 5 کاتژمێر: سەرئێشە و بێهێزی و لاوازی"]], [500, 4, ["500 ppm: IDLH؛ أعراض مرض بعد ساعة", "500 ppm: IDLH; symptoms of illness after 1 hour", "500 ppm: IDLH؛ نیشانەی نەخۆشی دوای کاتژمێرێک"]]], "src": "NIOSH NPG · NIOSH IDLH · OSHA Chemical Database"}, "c3h8": {"f": "C₃H₈", "n": ["البروبان (غاز الطبخ LPG)", "Propane (LPG)", "پرۆپان (LPG)"], "p": ["أثقل من الهواء (1.55×) ويتجمع عند الأرض؛ LEL = 2.1%", "Heavier than air (1.55×), pools near the floor; LEL = 2.1%", "لە هەوا قورستر (1.55×) و لە نزیک زەوی کۆدەبێتەوە؛ LEL = 2.1%"], "u": "%", "max": 12, "st": 0.1, "lel": 2.1, "s": "l", "lv": [[0, 0, ["آمن", "Safe", "سەلامەت"]], [0.1, 1, ["0.1% (1000 ppm): حد OSHA وNIOSH لمتوسط 8 ساعات", "0.1% (1000 ppm): OSHA and NIOSH 8-hour limit", "0.1% (1000 ppm): سنووری OSHA و NIOSH بۆ 8 کاتژمێر"]], [0.2, 2, ["نحو 0.2% (≈2100 ppm): IDLH = 10% من LEL؛ دوار وتشوش واختناق بسيط", "about 0.2% (≈2100 ppm): IDLH = 10% of LEL; dizziness, confusion, simple asphyxiation", "نزیکەی 0.2% (≈2100 ppm): IDLH = 10%ی LEL؛ سەرگێژ و تێکچوونی هۆش و خنکانی ساکار"]], [2.1, 3, ["2.1%: LEL؛ أي شرارة تكفي للانفجار", "2.1%: LEL; any spark can cause an explosion", "2.1%: LEL؛ هەر پرژەیەکی ئاگر دەتوانێت تەقینەوە دروست بکات"]], [9.5, 3, ["9.5%: UEL؛ فوقه الخليط غني جداً", "9.5%: UEL; above it the mixture is too rich", "9.5%: UEL؛ لە سەروویەوە تێکەڵەکە زۆر چڕە"]]], "src": "NIOSH NPG · OSHA Chemical Database"}, "o2": {"f": "O₂", "n": ["نقص الأكسجين (N₂ يزيح الأكسجين)", "Oxygen deficiency (N₂ pushes O₂ out)", "کەمیی ئۆکسجین (N₂ ئۆکسجین دەردەکات)"], "p": ["النيتروجين خامل وبلا رائحة لكنه يزيح الأكسجين", "Nitrogen is inert and odorless but displaces oxygen", "نایتڕۆجین بێ بۆن و بێکاردانەوەیە بەڵام ئۆکسجین دەردەکات"], "u": "%", "max": 21, "st": 0.1, "def": 20.9, "rev": 1, "lv": [[0, 4, ["≤6%: غيبوبة خلال نحو 40 ثانية ثم الوفاة", "6% or less: coma in about 40 seconds, then death", "6% یان کەمتر: کۆما لە نزیکەی 40 چرکەدا و پاشان مردن"]], [6, 4, ["6 إلى 8%: 50% وفيات خلال 6 دقائق، والوفاة خلال 8 دقائق", "6 to 8%: 50% fatal in 6 minutes; fatal in 8 minutes", "6 بۆ 8%: 50% مردن لە 6 خولەکدا؛ مردن لە 8 خولەکدا"]], [8, 3, ["8 إلى 10%: فشل ذهني وإغماء وغثيان وفقدان وعي", "8 to 10%: mental failure, fainting, nausea, unconsciousness", "8 بۆ 10%: لاوازیی هۆش و بێهۆشبوون و دڵتێکەوتن"]], [10, 3, ["10 إلى 12%: تنفس أسرع وزرقة الشفاه", "10 to 12%: faster breathing, blue lips", "10 بۆ 12%: هەناسەی خێراتر و شینبوونی لێو"]], [12, 2, ["12 إلى 14%: تنفس أسرع وضعف الحكم", "12 to 14%: faster breathing, poor judgment", "12 بۆ 14%: هەناسەی خێراتر و لاوازیی بڕیاردان"]], [14, 1, ["14 إلى 19.5%: انخفاض القدرة على الجهد وضعف التوافق والحكم", "14 to 19.5%: reduced ability for strenuous work, impaired coordination and judgment", "14 بۆ 19.5%: کەمبوونەوەی توانای کاری قورس و لاوازیی هاوتەریبی و بڕیاردان"]], [19.5, 0, ["19.5%: الحد الأدنى المقبول حسب OSHA؛ دونه الجو ناقص الأكسجين، وفوق 23.5% غني بالأكسجين وخطر حريق", "19.5%: OSHA minimum; below it the air is oxygen-deficient, above 23.5% it is oxygen-enriched (fire hazard)", "19.5%: کەمترین ئاستی OSHA؛ لە خوار ئەمەوە هەوا ئۆکسجینی کەمە، لە سەروو 23.5% ئۆکسجینی زیادە (مەترسیی ئاگر)"]], [20.9, 0, ["هواء طبيعي (20.9%)", "Normal air (20.9%)", "هەوای ئاسایی (20.9%)"]]], "src": "OSHA 29 CFR 1910.146 · OSHA-funded oxygen-effects handout"}}, "QS": [[["ماذا يحدث لحاسة الشم عند تركيز H₂S فوق نحو 100 ppm؟", "What happens to your sense of smell when H₂S is above about 100 ppm?", "کاتێک H₂S لە سەروو نزیکەی 100 ppm دەبێت، بە هەستی بۆنکردنت چی دەبێت؟"], [["تزداد الرائحة قوة", "تتعطل ولا تنذرك", "لا تتغير"], ["The smell gets stronger", "It shuts down and no longer warns you", "It stays the same"], ["بۆنەکە بەهێزتر دەبێت", "دەکوژێتەوە و ئیتر ئاگادارت ناکاتەوە", "هەر وەک خۆی دەمێنێتەوە"]], 1, ["شلل الشم يوهمك بزوال الغاز. اعتمد على الكاشف لا على أنفك.", "Smell paralysis makes you think the gas is gone. Trust the detector, not your nose.", "شەلەلی بۆن وا دەکات بیر بکەیتەوە گازەکە نەماوە. پشت بە ئامێری دۆزەرەوە ببەستە نەک لوت."]], [["ما نطاق انفجار CH₄ (Methane) في الهواء؟", "What is the explosive range of CH₄ (Methane) in air?", "ماوەی تەقینەوەی CH₄ (Methane) لە هەوادا چەندە؟"], [["5% إلى 15%", "1% إلى 3%", "30% إلى 50%"], ["5% to 15%", "1% to 3%", "30% to 50%"], ["5% بۆ 15%", "1% بۆ 3%", "30% بۆ 50%"]], 0, ["تحت 5% الوقود قليل، وفوق 15% الأكسجين قليل.", "Below 5% there is too little fuel; above 15% too little oxygen.", "لە خوار 5% سووتەمەنی کەمە، لە سەروو 15% ئۆکسجین کەمە."]], [["أي غاز أثقل من الهواء ويتجمع في الحُفَر؟", "Which gas is heavier than air and collects in pits?", "کام گاز لە هەوا قورستر و لە چاڵەکاندا کۆدەبێتەوە؟"], [["Methane (CH₄)", "Hydrogen (H₂)", "Carbon dioxide (CO₂)"], ["Methane (CH₄)", "Hydrogen (H₂)", "Carbon dioxide (CO₂)"], ["Methane (CH₄)", "Hydrogen (H₂)", "Carbon dioxide (CO₂)"]], 2, ["كثافة CO₂ نحو 1.5 مثل الهواء، أما CH₄ وH₂ فأخف.", "CO₂ is about 1.5× denser than air; CH₄ and H₂ are lighter.", "چڕی CO₂ نزیکەی 1.5 هێندەی هەوایە؛ CH₄ و H₂ سووکترن."]], [["لماذا CO قاتل رغم أنه بلا رائحة؟", "Why is CO deadly even though it has no smell?", "بۆچی CO کوشندەیە هەرچەندە بۆنی نییە؟"], [["رائحته تخدّر الأنف", "يرتبط بالهيموغلوبين أقوى بكثير من الأكسجين", "يحرق الرئتين مباشرة"], ["Its smell numbs the nose", "It binds hemoglobin far more strongly than oxygen", "It burns the lungs directly"], ["بۆنەکەی لوت بێهێز دەکات", "زۆر بەهێزتر لە ئۆکسجین بە هیمۆگلۆبینەوە دەلکێت", "ڕاستەوخۆ سییەکان دەسووتێنێت"]], 1, ["الدم يحمل CO بدل الأكسجين، فتختنق الخلايا دون إنذار.", "Blood carries CO instead of oxygen, so cells suffocate with no warning.", "خوێن CO دەگوازێتەوە لە جیاتی ئۆکسجین، خانەکان بێ ئاگاداری دەخنکێن."]], [["كيف يتكوّن SO₂ غالباً في عمليات النفط والغاز؟", "How is SO₂ mostly formed in oil and gas operations?", "SO₂ لە کارەکانی نەوت و گازدا زۆرتر چۆن دروست دەبێت؟"], [["من تبخر النفط الخام", "من حرق CH₄ فقط", "من حرق H₂S في الشعلات ووحدات الكبريت"], ["From crude oil evaporating", "From burning CH₄ only", "From burning H₂S in flares and sulfur units"], ["لە هەڵمبوونی نەوتی خاو", "تەنها لە سووتانی CH₄", "لە سووتانی H₂S لە فلەیر و یەکەکانی گۆگرد"]], 2, ["احتراق الكبريت في H₂S ينتج SO₂ الخانق.", "Burning the sulfur in H₂S makes irritating SO₂.", "سووتانی گۆگردی H₂S ئەو SO₂ە تیژە دروست دەکات."]], [["ما أخطر أثر طويل الأمد للتعرض لـ Benzene؟", "What is the most serious long-term effect of Benzene exposure?", "مەترسیدارترین کاریگەریی درێژخایەنی بەرکەوتن بە Benzene چییە؟"], [["السرطان، مثل سرطان الدم", "تسوّس الأسنان", "فقدان السمع فقط"], ["Cancer, such as leukemia", "Tooth decay", "Hearing loss only"], ["شێرپەنجە، وەک شێرپەنجەی خوێن", "ڕزانی ددان", "تەنها لەدەستدانی بیستن"]], 0, ["Benzene مسرطن للإنسان، لذلك حدوده منخفضة جداً.", "Benzene is a human carcinogen, so its limits are very low.", "Benzene شێرپەنجەزای مرۆڤە، بۆیە سنوورەکانی زۆر نزمن."]], [["ما الحد الأدنى الآمن للأكسجين في الهواء حسب OSHA؟", "What is the minimum safe oxygen level in air according to OSHA?", "کەمترین ئاستی سەلامەتی ئۆکسجین لە هەوادا بەپێی OSHA چەندە؟"], [["16%", "19.5%", "23.5%"], ["16%", "19.5%", "23.5%"], ["16%", "19.5%", "23.5%"]], 1, ["أقل من 19.5% يُعدّ ناقص الأكسجين، وفوق 23.5% غني بالأكسجين.", "Below 19.5% is oxygen-deficient; above 23.5% is oxygen-enriched.", "لە خوار 19.5% کەمیی ئۆکسجینە، لە سەروو 23.5% ئۆکسجینی زیادە."]], [["ما الترتيب الصحيح لفحص غاز الحيّز المغلق؟", "What is the correct order for gas-testing a confined space?", "ڕیزبەندیی دروستی پشکنینی گازی شوێنی داخراو چییە؟"], [["السموم ثم O₂ ثم LEL", "LEL ثم السموم ثم O₂", "O₂ ثم LEL ثم السموم"], ["Toxics, then O₂, then LEL", "LEL, then toxics, then O₂", "O₂, then LEL, then toxics"], ["ژەهر، پاشان O₂، پاشان LEL", "LEL، پاشان ژەهر، پاشان O₂", "O₂، پاشان LEL، پاشان ژەهر"]], 2, ["الأكسجين أولاً لأن قراءة LEL تعتمد عليه، ثم السموم مثل H₂S وCO.", "Oxygen first because LEL readings depend on it, then toxics like H₂S and CO.", "ئۆکسجین یەکەم چونکە خوێندنەوەی LEL پێی دەبەستراوە، پاشان ژەهرەکانی وەک H₂S و CO."]], [["ماذا يعني LEL؟", "What does LEL mean?", "LEL واتە چی؟"], [["أدنى نسبة غاز في الهواء يمكن أن تشتعل", "مستوى التعرض المميت", "أطول مدة تعرض"], ["The lowest gas percentage in air that can ignite", "Lethal exposure level", "Longest exposure limit"], ["کەمترین ڕێژەی گاز لە هەوادا کە دەتوانێت بگرێت", "ئاستی بەرکەوتنی کوشندە", "درێژترین ماوەی بەرکەوتن"]], 0, ["LEL اختصار Lower Explosive Limit؛ بين LEL وUEL يكون الخليط قابلاً للاشتعال.", "LEL is Lower Explosive Limit; between LEL and UEL the mixture can burn.", "LEL کورتکراوەی Lower Explosive Limit ـە؛ لە نێوان LEL و UEL تێکەڵەکە دەتوانێت بسووتێت."]], [["ماذا تعني IDLH؟", "What does IDLH mean?", "IDLH واتە چی؟"], [["الحد اليومي الطبيعي للعمل", "مستوى يهدد الحياة أو الصحة فوراً أو يمنع الهروب", "مستوى إنذار الكاشف"], ["The normal daily work limit", "A level that threatens life or health at once or prevents escape", "The detector alarm level"], ["سنووری ئاسایی ڕۆژانەی کار", "ئاستێک کە دەستبەجێ مەترسی لەسەر ژیان یان تەندروستی دروست دەکات یان ڕێگری لە ڕاکردن دەکات", "ئاستی ئاگادارکەرەوەی ئامێر"]], 1, ["IDLH = Immediately Dangerous to Life or Health. اخرج فوراً؛ لا يدخل إلا من يرتدي SCBA.", "IDLH = Immediately Dangerous to Life or Health. Leave at once; only people with SCBA may enter.", "IDLH = Immediately Dangerous to Life or Health. دەستبەجێ دەربچۆ؛ تەنها ئەوانەی SCBA یان لەبەرە دەتوانن بچنە ژوورەوە."]], [["Nitrogen (N₂) غير سام، فلماذا يقتل في الأماكن المغلقة؟", "Nitrogen (N₂) is not toxic, so why can it kill in enclosed spaces?", "Nitrogen (N₂) ژەهراوی نییە، بۆچی لە شوێنی داخراودا دەکوژێت؟"], [["لأنه سام جداً", "لأنه يشتعل", "لأنه يزيح الأكسجين دون أي إنذار"], ["Because it is very toxic", "Because it burns", "Because it displaces oxygen with no warning"], ["چونکە زۆر ژەهراوییە", "چونکە دەگیرێت", "چونکە بێ هیچ ئاگادارییەک ئۆکسجین دەردەکات"]], 2, ["بلا لون ولا رائحة، ويختنق الإنسان دون أن يشعر.", "It is colorless and odorless, so people suffocate without noticing.", "بێ ڕەنگ و بێ بۆنە، مرۆڤ بێ ئەوەی هەست بکات دەخنکێت."]], [["انطلق إنذار H₂S في الموقع. أين تتجه؟", "An H₂S alarm sounds on site. Where do you go?", "ئاگادارکەرەوەی H₂S لە شوێنەکەدا لێدرا. بەرەو کوێ دەڕۆیت؟"], [["عكس الرياح أو جانبياً نحو نقطة التجمع، ويفضّل مكاناً مرتفعاً", "إلى الحفرة لأرى المصدر", "مع اتجاه الرياح لأرى المصدر"], ["Upwind or crosswind to the muster point, preferably higher ground", "Into the pit to see the source", "Downwind to see the source"], ["بەرەو ڕووی با یان لای با بۆ خاڵی کۆبوونەوە، باشتر شوێنێکی بەرزتر", "بۆ ناو چاڵەکە بۆ بینینی سەرچاوە", "لەگەڵ ئاراستەی با بۆ بینینی سەرچاوە"]], 0, ["H₂S أثقل من الهواء، فالتحرك عكس اتجاه الرياح ونحو مكان مرتفع يقلل التعرض.", "H₂S is heavier than air, so moving upwind and uphill reduces exposure.", "H₂S لە هەوا قورستر، بۆیە جوڵە بەرەو ڕووی با و بەرەو شوێنی بەرز بەرکەوتن کەم دەکات."]], [["لماذا يُضاف Ethyl mercaptan إلى غاز الطبخ (LPG)؟", "Why is Ethyl mercaptan added to LPG?", "بۆچی Ethyl mercaptan بۆ گازی چێشتلێنان (LPG) زیاد دەکرێت؟"], [["لأن LPG تفوح منه رائحة بيض فاسد طبيعياً", "ليُشَمّ التسريب لأن LPG بلا رائحة", "ليمنع اشتعال الغاز"], ["Because LPG naturally smells like rotten eggs", "So leaks can be smelled, since LPG has no odor", "To stop the gas burning"], ["چونکە LPG بە سروشتی بۆنی هێلکەی بۆگەنی هەیە", "تا ڕژان بە بۆن بدۆزرێتەوە چونکە LPG بێ بۆنە", "بۆ ڕێگری لە سووتانی گاز"]], 1, ["الرائحة المضافة هي الإنذار، لكنها قد تضعف في الأسطوانات الصدئة.", "The added smell is the warning, but it can fade in rusty cylinders.", "بۆنە زیادکراوەکە ئاگادارکەرەوەیە، بەڵام لە بوتڵی زەنگاوی لاواز دەبێت."]], [["أي إجراء أعلى في هرم الضوابط وأكثر فاعلية؟", "Which action is highest and most effective in the hierarchy of controls?", "کام کار لە پلەبەندیی کۆنترۆڵەکاندا بەرزترە و کاریگەرترە؟"], [["معدات الوقاية PPE", "لافتات التحذير", "إزالة الخطر نهائياً"], ["PPE (masks, gloves)", "Warning signs", "Eliminating the hazard"], ["کەلوپەلی پاراستن PPE", "تابلۆی ئاگادارکردنەوە", "لابردنی مەترسییەکە بە تەواوی"]], 2, ["الإزالة لا تعتمد على سلوك الإنسان، أما PPE فآخر خط دفاع.", "Elimination does not depend on human behaviour; PPE is the last line of defence.", "لابردن پشت بە ڕەفتاری مرۆڤ نابەستێت؛ PPE دوایین هێڵی بەرگرییە."]], [["ماذا تعني TWA في حدود التعرض؟", "What does TWA mean in exposure limits?", "TWA لە سنووری بەرکەوتندا واتە چی؟"], [["المتوسط على 8 ساعات عمل", "أعلى تركيز مسموح في أي لحظة", "حد 15 دقيقة فقط"], ["The average over an 8-hour shift", "The highest level allowed at any moment", "A 15-minute limit only"], ["تێکڕای 8 کاتژمێری کار", "بەرزترین ئاستی ڕێگەپێدراو لە هەر ساتێکدا", "تەنها سنووری 15 خولەک"]], 0, ["TWA = Time-Weighted Average. أما السقف C فلا يُتجاوز أبداً.", "TWA = Time-Weighted Average. A ceiling (C) must never be exceeded.", "TWA = Time-Weighted Average. سنووری سەرووی (C) هەرگیز نابێت تێپەڕێنرێت."]]]};
+const NT={
+title:["دليل سلامة الغازات","Gas Safety Guide","ڕێبەری سەلامەتیی گاز"],
+h1:["تعلّم سلامة الغاز باللعب والتجربة","Learn gas safety by playing and experimenting","فێربوونی سەلامەتیی گاز بە یاری و تاقیکردنەوە"],
+lead:["جرّب الغازات، شاهد السحابة تتحرك، اهرب من التسرب، ثم رتّب خطوات السلامة بنفسك.","Try the gases, watch the cloud move, escape the leak, then put the safety steps in order yourself.","گازەکان تاقی بکەرەوە، هەورەکە ببینە چۆن دەجوڵێت، لە ڕژانەکە ڕابکە، پاشان هەنگاوەکانی سەلامەتی خۆت ڕیز بکە."],
+n:[["جرّب الغازات","Gases","گازەکان"],["مختبر السحابة","Cloud lab","تاقیگەی هەور"],["اهرب","Escape","ڕاکردن"],["خطوات السلامة","Safety steps","هەنگاوەکانی سەلامەتی"],["اكشف التسرب","Find the leak","دۆزینەوەی ڕژان"],["اختبار","Quiz","تاقیکردنەوە"]],
+tips:[["لا تعتمد على أنفك وحده: استخدم كاشف الغاز.","Never trust your nose alone: use a gas detector.","هەرگیز تەنها پشت بە لوتت مەبەستە: ئامێری دۆزەرەوەی گاز بەکاربهێنە."],["بعض الغازات أثقل من الهواء فتتجمع قرب الأرض.","Some gases are heavier than air and pool near the ground.","هەندێک گاز لە هەوا قورستر و لە نزیک زەوی کۆدەبنەوە."],["لا تدخل لإنقاذ أحد بلا جهاز تنفس.","Never rush in to rescue someone without breathing apparatus.","هەرگیز بێ ئامێری هەناسە مەچۆ بۆ ڕزگارکردنی کەسێک."]],
+reset:["إعادة","Reset","دووبارە"],
+lab_h:["مختبر سحابة الغاز","Gas cloud lab","تاقیگەی هەوری گاز"],
+lab_s:["اختر الغاز وابدأ التسرب، ثم حرّك الكاشف إلى المكان الذي يلتقط فيه الغاز.","Pick a gas and start the leak, then move the detector to where it picks up the gas.","گازێک هەڵبژێرە و ڕژان دەستپێبکە، پاشان ئامێری دۆزەرەوە بۆ ئەو شوێنە ببە کە گازەکە دەگرێت."],
+lab_l:["الخط المتقطع = متوسط مستوى الغاز. هذه محاكاة مبسّطة للتعلّم وليست نموذجاً هندسياً دقيقاً.","Dashed line = average gas level. A simplified learning demo, not an exact engineering model.","هێڵی پچڕاو = ناوەندیی ئاستی گاز. نمایشێکی ساکارکراوی فێرکارییە نەک مۆدێلی ئەندازیاریی ورد."],
+leak_on:["ابدأ التسرب","Start leak","ڕژان دەستپێبکە"],leak_off:["أوقف التسرب","Stop leak","ڕژان بوەستێنە"],
+detH:["ارتفاع الكاشف","Detector height","بەرزیی ئامێری دۆزەرەوە"],
+dens:["الكثافة مقارنة بالهواء","Density vs air","چڕی بەراورد بە هەوا"],
+rises:["أخف: يصعد","lighter: rises","سووکتر: بەرز دەبێتەوە"],sinks:["أثقل: يهبط","heavier: sinks","قورستر: دەکەوێتە خوارەوە"],mixes:["قريب من الهواء: ينتشر","about the same: spreads out","نزیک لە هەوا: بڵاو دەبێتەوە"],
+det_ok:["✓ الكاشف يلتقط الغاز","✓ The detector sees the gas","✓ ئامێرەکە گازەکە دەگرێت"],det_no:["✗ لا يلتقط شيئاً: جرّب ارتفاعاً آخر","✗ Sees nothing: try another height","✗ هیچ نابینێت: بەرزییەکی تر تاقی بکەرەوە"],
+wind_h:["اهرب من الغاز","Escape the gas","لە گاز ڕابکە"],
+wind_s:["انطلق إنذار H₂S! السهم يبين اتجاه الرياح. اضغط على نقطة التجمع التي تهرب إليها.","H₂S alarm! The arrow shows where the wind blows. Tap the muster point you run to.","ئاگادارکەرەوەی H₂S لێدرا! تیرەکە ئاراستەی با نیشان دەدات. خاڵی کۆبوونەوەکە دابگرە کە بۆی ڕادەکەیت."],
+w_good:["ممتاز! عكس الرياح: الغاز يبتعد عنك.","Excellent! Upwind: the gas drifts away from you.","نایاب! بەرەو ڕووی با: گازەکە لێت دوور دەکەوێتەوە."],
+w_ok:["جيد: جانبي. عكس الرياح أفضل.","OK: crosswind. Upwind is even better.","باشە: لای با. بەرەو ڕووی با باشترە."],
+w_bad:["خطأ! مع اتجاه الرياح: الغاز يلحق بك.","Wrong! Downwind: the gas follows you.","هەڵە! لەگەڵ با: گازەکە شوێنت دەکەوێت."],
+round:["الجولة","Round","خول"],score:["النقاط","Score","خاڵ"],next:["جولة جديدة","New round","خولی نوێ"],
+st_h:["خطوات السلامة بالترتيب","Safety steps in order","هەنگاوەکانی سەلامەتی بە ڕیز"],
+st_s:["اضغط الخطوات بالترتيب الصحيح. الخطأ يهتز، والصواب يُضعف سحابة الغاز.","Tap the steps in the right order. A wrong tap shakes; a right one shrinks the gas cloud.","هەنگاوەکان بە ڕیزی دروست دابگرە. هەڵە دەلەرزێت و دروست هەوری گازەکە کەم دەکاتەوە."],
+sc1:["تسرب غاز الطبخ في البيت","LPG leak at home","ڕژانی گازی چێشتلێنان لە ماڵ"],sc2:["الدخول إلى خزان","Entering a tank","چوونە ناو تانکێک"],
+st_wrong:["ليس بعد! فكّر: ما الخطر الأكثر إلحاحاً الآن؟","Not yet! Think: what is the most urgent danger now?","هێشتا نا! بیربکەرەوە: ئێستا کام مەترسی گرنگترە؟"],
+st_done:["🎉 أحسنت! الترتيب صحيح والمكان آمن.","🎉 Well done! Correct order, safe place.","🎉 ئافەرین! ڕیزبەندییەکە دروستە و شوێنەکە سەلامەتە."],
+hu_h:["اكتشف مصدر التسرب","Find the leak","سەرچاوەی ڕژان بدۆزەرەوە"],
+hu_s:["اضغط خانة لقياس الغاز بالكاشف (ppm). اتجه نحو القراءة الأعلى لتجد المصدر بأقل عدد من القياسات.","Tap a tile to measure with your detector (ppm). Move toward the higher reading to find the source in the fewest readings.","خانەیەک دابگرە بۆ پێوانە بە ئامێرەکە (ppm). بەرەو خوێندنەوەی بەرزتر بچۆ بۆ دۆزینەوەی سەرچاوە بە کەمترین پێوانە."],
+hu_found:["وجدته! عدد القياسات:","Found it! Readings used:","دۆزیمەوە! ژمارەی پێوانەکان:"],hu_best:["الأفضل","Best","باشترین"],hu_new:["تسرب جديد","New leak","ڕژانی نوێ"],hu_n:["القياسات","Readings","پێوانەکان"],
+hu_note:["القراءات هنا تجريبية. في مناطق H₂S الحقيقية لا تتجه نحو التسرب بلا SCBA.","Readings here are for practice. In real H₂S areas never walk toward a leak without SCBA.","خوێندنەوەکان لێرە بۆ ڕاهێنانن. لە ناوچە ڕاستەقینەکانی H₂S هەرگیز بێ SCBA بەرەو ڕژانەکە مەچۆ."],
+disc:["مادة تعليمية مبسّطة، وليست بديلاً عن التدريب الرسمي وإجراءات شركتك.","Simplified educational material, not a substitute for formal training and your company procedures.","ماددەیەکی فێرکاریی ساکارکراوە، جێگەی ڕاهێنانی فەرمی و ڕێنماییەکانی کۆمپانیاکەت ناگرێتەوە."],
+disc2:["القيم مأخوذة من المصادر الرسمية المذكورة في قسم المصادر (تحقق بتاريخ 20 أكتوبر 2026). راجع الإصدار الحالي قبل الاعتماد عليها.","Values are taken from the official sources listed in the Sources section (checked 20 October 2026). Check the current edition before relying on them.","بەهاکان لە سەرچاوە فەرمییەکانی بەشی سەرچاوەکان وەرگیراون (پشکنراوە لە 20ی تشرینی یەکەمی 2026). پێش پشتبەستن وەشانی ئێستا بپشکنە."]
+};
+const NT2={
+h1:["افهم سلوك الغازات الخطرة في النفط بالتجربة","Understand how hazardous gases behave in oil and gas by experimenting","تێبگە گازە مەترسیدارەکانی نەوت چۆن ڕەفتار دەکەن بە تاقیکردنەوە"],
+lead:["محاكيات علمية تفاعلية: تركيز الغاز، الكثافة، نطاق الاشتعال، التهوية، والرياح.","Interactive scientific simulations: gas concentration, density, flammable range, ventilation and wind.","شبیەسازیی زانستیی کارلێککەر: چڕی گاز، چڕی بەراورد، ماوەی سووتان، هەواگۆڕکێ و با."],
+n:[["الغازات","Gases","گازەکان"],["مختبر السحابة","Cloud lab","تاقیگەی هەور"],["نطاق الاشتعال","Flammable range","ماوەی سووتان"],["التهوية","Ventilation","هەواگۆڕکێ"],["الكروماتوغرافيا","GC lab","کرۆماتۆگرافی"],["الإجراءات","Procedures","ڕێکارەکان"],["اختبار","Quiz","تاقیکردنەوە"],["المصادر","Sources","سەرچاوەکان"]],
+fl_h:["نطاق الاشتعال (LEL وUEL)","Flammable range (LEL and UEL)","ماوەی سووتان (LEL و UEL)"],
+fl_s:["حرّك نسبة الغاز في الهواء وشاهد متى يشتعل الخليط ومتى لا.","Move the gas percentage in air and see when the mixture can burn and when it cannot.","ڕێژەی گاز لە هەوادا بجوڵێنە و ببینە کەی تێکەڵەکە دەتوانێت بسووتێت و کەی نا."],
+fl_lean:["نحيف: وقود قليل فلا يشتعل. لكن الاقتراب من LEL يعني أن الخطر قريب.","Too lean: not enough fuel to burn. But nearing LEL means danger is close.","زۆر کەمە: سووتەمەنی بەس نییە بۆ سووتان. بەڵام نزیکبوون لە LEL واتە مەترسی نزیکە."],
+fl_in:["نطاق الاشتعال: أي مصدر إشعال يسبب حريقاً أو انفجاراً.","Flammable range: any ignition source can cause a fire or explosion.","ماوەی سووتان: هەر سەرچاوەیەکی گرتن دەبێتە هۆی ئاگرکەوتنەوە یان تەقینەوە."],
+fl_rich:["غني جداً: لا يشتعل داخل الحيّز، لكنه يشتعل عند اختلاطه بالهواء.","Too rich: won't burn inside, but burns where it mixes with air.","زۆر چڕە: لە ناوەوە ناسووتێت، بەڵام کاتێک لەگەڵ هەوا تێکەڵ دەبێت دەسووتێت."],
+v_h:["التهوية وتخفيف الغاز في حيّز مغلق","Ventilation and gas dilution in an enclosed space","هەواگۆڕکێ و کەمکردنەوەی گاز لە شوێنی داخراودا"],
+v_s:["كم يلزم من الوقت لتخفيض تركيز ملوّث مثل H₂S بالتهوية؟ غيّر الحجم وتدفق الهواء.","How long does ventilation need to bring a contaminant such as H₂S down? Change the volume and airflow.","هەواگۆڕکێ چەند کات پێویستە بۆ دابەزاندنی چڕیی پیسکەرێک وەک H₂S؟ قەبارە و ڕووباری هەوا بگۆڕە."],
+v_v:["حجم الحيّز","Space volume","قەبارەی شوێن"],v_q:["تدفق الهواء","Airflow","ڕووباری هەوا"],v_c:["التركيز الابتدائي","Starting concentration","چڕیی سەرەتا"],v_t:["التركيز المستهدف","Target concentration","چڕیی مەبەست"],
+v_ach:["تبديل الهواء في الساعة","Air changes per hour","گۆڕینی هەوا لە کاتژمێرێکدا"],v_time:["الزمن المطلوب","Time needed","کاتی پێویست"],
+v_note:["نموذج مثالي بخلط تام ومن دون مصدر تسرب مستمر. في الواقع توجد جيوب راكدة، لذلك أكِّد دائماً بفحص الغاز قبل الدخول.","An ideal model: perfect mixing and no continuing source. Real spaces have dead zones, so always confirm with a gas test before entry.","مۆدێلێکی ئایدیاڵە: تێکەڵبوونی تەواو و بێ سەرچاوەی بەردەوام. لە ڕاستیدا شوێنی ڕاوەستاو هەیە، بۆیە پێش چوونە ژوورەوە هەمیشە بە پشکنینی گاز دڵنیابەرەوە."],
+wind_h:["الرياح وسحابة الغاز","Wind and the gas plume","با و هەوری گاز"],
+wind_s:["اختر اتجاه الرياح وسرعتها، وشاهد السحابة وأي نقاط تجمع تكون آمنة.","Choose the wind direction and speed and see the plume and which muster points are safe.","ئاراستە و خێرایی با هەڵبژێرە و هەوری گاز و ئەو خاڵانە ببینە کە سەلامەتن."],
+w_dir:["الرياح تهب نحو","Wind blows toward","با بەرەو ئەمەوە دەڕوات"],w_sp:["سرعة الرياح","Wind speed","خێرایی با"],
+w_leg:["✓ عكس الرياح (الأفضل) · ~ جانبي (مقبول) · ✗ مع الرياح (خطر)","✓ upwind (best) · ~ crosswind (acceptable) · ✗ downwind (danger)","✓ بەرەو ڕووی با (باشترین) · ~ لای با (قبوڵ) · ✗ لەگەڵ با (مەترسی)"],
+w_note:["في الواقع يعتمد الاتجاه الآمن على مخطط الموقع وخطة الطوارئ.","In reality the safe direction depends on the site layout and the emergency plan.","لە ڕاستیدا ئاراستەی سەلامەت بەندە بە نەخشەی شوێنەکە و پلانی فریاکەوتن."],
+st_h:["إجراءات السلامة خطوة بخطوة","Safety procedures step by step","ڕێکارەکانی سەلامەتی هەنگاو بە هەنگاو"],
+st_s:["تنقّل بين الخطوات وشاهد سبب كل خطوة وكيف ينخفض الخطر.","Move through the steps and see the reason for each and how the hazard drops.","لە نێوان هەنگاوەکان بگەڕێ و هۆکاری هەرکامیان و کەمبوونەوەی مەترسی ببینە."],
+st_done:["اكتملت الإجراءات: المكان مهيأ للمتابعة وفق التصريح.","Procedure complete: the place is ready to proceed under your permit.","ڕێکارەکە تەواو بوو: شوێنەکە ئامادەیە بۆ بەردەوامبوون بەپێی مۆڵەت."],
+pv:["السابق","Previous","پێشوو"],nt:["التالي","Next","دواتر"],haz:["الخطر المتبقي","Remaining hazard","مەترسیی ماوە"]
+};
+const NT3={
+gc_h:["كروماتوغرافيا الغاز (GC): تحليل الغاز الطبيعي في المختبر","Gas chromatography (GC): analysing natural gas in the lab","کرۆماتۆگرافیای گاز (GC): شیکردنەوەی گازی سروشتی لە تاقیگە"],
+gc_s:["هكذا يُحلَّل تركيب الغاز في مختبرات النفط: تُحقن العيّنة فتنفصل مكوّناتها داخل العمود بحسب ارتباطها بالطور الثابت، ويكشفها كاشف FID. غيّر العيّنة وحرارة الفرن وتدفق الغاز الحامل، ثم اضغط حقن العيّنة.","This is how gas composition is analysed in petroleum labs: the sample is injected, its components separate in the column by how strongly they interact with the stationary phase, and an FID detects them. Change the sample, oven temperature and carrier flow, then press Inject.","ئەمە شێوازی شیکردنەوەی پێکهاتەی گازە لە تاقیگەکانی نەوتدا: نموونەکە دەرزی دەکرێت، پێکهاتەکانی لە ستوونەکەدا بەپێی پەیوەندییان بە قۆناغی جێگیر جیا دەبنەوە، و ئامێری FID دەیاندۆزێتەوە. نموونە و گەرمیی فڕن و ڕووباری گازی هەڵگر بگۆڕە، پاشان دەرزیکردن دابگرە."],
+gcs:[["غاز جاف","Dry gas","گازی وشک"],["غاز رطب","Wet gas","گازی تەڕ"],["غاز غني بالـ LPG","LPG-rich gas","گازی دەوڵەمەند بە LPG"]],
+gc_temp:["حرارة الفرن","Oven temperature","گەرمیی فڕن"],gc_flow:["تدفق الغاز الحامل","Carrier gas flow","ڕووباری گازی هەڵگر"],gc_zoom:["تكبير الإشارة","Signal zoom","گەورەکردنی نیشانە"],
+gc_inj:["حقن العيّنة","Inject sample","دەرزیکردنی نموونە"],gc_run:["جارٍ التحليل…","Running…","شیکردنەوە بەردەوامە…"],
+gc_rs:["الفصل بين i-C₄ وn-C₄ (Rs)","Separation of i-C₄ / n-C₄ (Rs)","جیاکردنەوەی i-C₄ / n-C₄ (Rs)"],
+gc_ok:["منفصلان تماماً","baseline separated","بە تەواوی جیا بوونەتەوە"],gc_no:["متداخلان: خفّض الحرارة","overlapping: lower the temperature","تێکەڵن: گەرمی کەم بکەرەوە"],
+gc_time:["زمن التحليل","Run time","کاتی شیکردنەوە"],
+gc_c:["المكوّن","Component","پێکهاتە"],gc_a:["مساحة القمة %","Peak area %","ڕووبەری لووتکە %"],gc_m:["مول % بعد التصحيح","mol % (corrected)","مۆڵ % (چاککراو)"],
+gc_note:["مساحة القمة لا تساوي نسبة المول مباشرة: يستجيب كاشف FID تقريباً بحسب عدد ذرات الكربون، فتُقسم المساحة على عامل استجابة. كذلك تظهر المكوّنات الصغيرة عند رفع التكبير. هذا نموذج مبسّط للتعلّم وليس طريقة معايرة كاملة. قيم الاحتباس مثالية وليست قياسات حقيقية (انظر المصادر: ASTM D1945، ومفهوم الرقم الكربوني الفعّال لـ FID).","Peak area is not directly the mole fraction: an FID responds roughly in proportion to the number of carbon atoms, so area is divided by a response factor. Minor components appear when you raise the zoom. This is a simplified learning model, not a full calibration method. The retention values are illustrative, not measured (see Sources: ASTM D1945; the FID effective-carbon-number concept).","ڕووبەری لووتکە ڕاستەوخۆ هاوتای ڕێژەی مۆڵ نییە: FID نزیکەی بە ڕێژەی ژمارەی ئەتۆمی کاربۆن وەڵام دەداتەوە، بۆیە ڕووبەرەکە دابەش دەکرێت بەسەر هۆکاری وەڵامدانەوە. پێکهاتە بچووکەکان بە زیادکردنی گەورەکردن دەردەکەون. ئەمە مۆدێلێکی ساکارکراوی فێرکارییە نەک شێوازی پێوانەکردنی تەواو. بەهاکانی ڕاگرتن نیشاندەرن نەک پێوانەکراو (بڕوانە سەرچاوەکان: ASTM D1945 و چەمکی ژمارەی کاربۆنی کاریگەر بۆ FID)."]
+};
+const NT4={
+srcp:["المصادر:","Sources:","سەرچاوەکان:"],
+src_h:["المصادر والتحقق","Sources and verification","سەرچاوەکان و پشتڕاستکردنەوە"],
+src_s:["راجعتُ القيم وجداول الأعراض في هذه الصفحة مع المصادر التالية بتاريخ 20 أكتوبر 2026. اضغط أي رابط لتتحقق بنفسك.","The values and symptom tables on this page were checked against the sources below on 20 October 2026. Tap any link to verify for yourself.","بەهاکان و خشتەی نیشانەکانی ئەم پەڕەیە لە 20ی تشرینی یەکەمی 2026 لەگەڵ ئەم سەرچاوانە پشکنران. هەر بەستەرێک دابگرە بۆ پشتڕاستکردنەوە."],
+src_note:["مأخوذ من المصادر: حدود التعرض وقيم IDLH وحدود الاشتعال والكثافة وجداول الأعراض. توضيحي وليس بيانات قياس: حركة السحابة في المختبر، ومنحنى التهوية (نموذج خلط تام)، وثوابت الاحتباس في الكروماتوغرافيا.","From the sources: exposure limits, IDLH values, flammable limits, densities and symptom tables. Illustrative, not measured data: the cloud-lab motion, the ventilation curve (perfect-mixing model) and the chromatography retention constants.","لە سەرچاوەکانەوە: سنووری بەرکەوتن، بەهای IDLH، سنووری سووتان، چڕی و خشتەی نیشانەکان. نیشاندەرن نەک داتای پێوانەکراو: جوڵەی هەور لە تاقیگە، لوولەی هەواگۆڕکێ (مۆدێلی تێکەڵبوونی تەواو) و بەهاکانی ڕاگرتن لە کرۆماتۆگرافی."]
+};
+const T=Object.assign({},D.T,NT,NT2,NT3,NT4),G=D.G,QS=D.QS;
+const ST=[[
+[["لا لهب ولا مفاتيح كهرباء","No flames, no switches","نە ئاگر نە کلیلی کارەبا"],["أي شرارة قد تشعل الغاز.","Any spark can ignite the gas.","هەر پرژەیەکی ئاگر دەتوانێت گازەکە بگرێنێت."]],
+[["افتح النوافذ والأبواب","Open windows and doors","پەنجەرە و دەرگاکان بکەرەوە"],["الهواء النقي يخفف الغاز.","Fresh air dilutes the gas.","هەوای پاک گازەکە کەم دەکاتەوە."]],
+[["أغلق صمام الأسطوانة إن كان آمناً","Close the cylinder valve if safe","ڤاڵڤی بوتڵەکە دابخە ئەگەر سەلامەت بێت"],["يوقف التسرب من مصدره.","It stops the leak at the source.","ڕژانەکە لە سەرچاوەکەیەوە دەوەستێنێت."]],
+[["اخرج من البيت","Leave the house","لە ماڵەکە بڕۆ دەرەوە"],["قد يشتعل الغاز أو يخنقك.","The gas may ignite or suffocate you.","گازەکە دەتوانێت بگرێت یان بتخنکێنێت."]],
+[["اتصل بالطوارئ من الخارج","Call emergency services from outside","لە دەرەوە پەیوەندی بە فریاکەوتن بکە"],["أنت بأمان ويمكنك إعطاء العنوان بدقة.","You are safe and can give the exact location.","تۆ سەلامەتیت و دەتوانیت شوێنەکە بە وردی بدەیت."]]],[
+[["احصل على تصريح عمل","Get a permit to work","مۆڵەتی کار وەربگرە"],["يعرف الجميع الخطر والخطة.","Everyone knows the hazards and the plan.","هەمووان مەترسی و پلانەکە دەزانن."]],
+[["اعزل المصادر: أغلق الصمامات وأقفل الطاقة","Isolate sources: close valves, lock out energy","سەرچاوەکان جیابکەرەوە: ڤاڵڤ دابخە و وزە قوفڵ بکە"],["لا غاز يدخل ولا جهاز يعمل وأنت بالداخل.","No gas flows in and no machine starts while you are inside.","گاز ناچێتە ژوورەوە و ئامێر دەست پێناکات لە کاتی ناوەوەتدا."]],
+[["هوِّ الخزان","Ventilate the tank","تانکەکە هەواگۆڕکێ بکە"],["يخفف الغاز ويعيد الأكسجين.","It dilutes gas and restores oxygen.","گاز کەم دەکاتەوە و ئۆکسجین دەگەڕێنێتەوە."]],
+[["افحص الغاز: O₂ ثم LEL ثم السموم","Test the gas: O₂, then LEL, then toxics","گاز بپشکنە: O₂ پاشان LEL پاشان ژەهرەکان"],["كاشف LEL يحتاج الأكسجين ليقرأ جيداً.","LEL sensors need oxygen to read correctly.","ئامێری LEL پێویستی بە ئۆکسجینە بۆ خوێندنەوەی دروست."]],
+[["ضع حارساً في الخارج وادخل بكاشف شخصي","Station a standby person outside and enter with a personal detector","چاودێرێک لە دەرەوە دابنێ و بە ئامێری کەسییەوە بچۆ ژوورەوە"],["إن تغير الجو يبدأ الإنقاذ فوراً.","If the air changes, rescue can start at once.","ئەگەر هەوا بگۆڕێت ڕزگارکردن دەستبەجێ دەست پێدەکات."]]]];
+const $=id=>document.getElementById(id),SEV=["--s0","--s1","--s2","--s3","--s4"],FACE=["😊","🙂","😷","😵","☠️"];
+let L=2,cur="h2s";const DIR=["rtl","ltr","rtl"],LC=["ar","en","ckb"],t=k=>T[k][L];
+const css=n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+function flag(w){let r="";for(let i=0;i<21;i++){const a=i*2*Math.PI/21,f=(R,d)=>(15+R*Math.cos(a+d)).toFixed(2)+","+(10+R*Math.sin(a+d)).toFixed(2);r+=`<polygon points="${f(3,-.1)} ${f(5.3,0)} ${f(3,.1)}"/>`}
+return `<svg class="flag" viewBox="0 0 30 20" width="${w}" role="img" aria-label="Flag of Kurdistan"><rect width="30" height="6.67" fill="#ED2024"/><rect y="6.67" width="30" height="6.67" fill="#fff"/><rect y="13.33" width="30" height="6.67" fill="#278E43"/><g fill="#FEBD11"><circle cx="15" cy="10" r="3.1"/>${r}</g><rect width="30" height="20" fill="none" stroke="#0003" stroke-width=".4"/></svg>`}
+
+/* ---- simulator ---- */
+function lvl(g,v){let r=g.lv[0];g.lv.forEach(l=>{if(v>=l[0])r=l});return r}
+function upd(){const g=G[cur],v=+$("rng").value,l=lvl(g,v);
+document.documentElement.style.setProperty("--cur",css(SEV[l[1]]));
+const ut=g.rev?"% O₂":g.u=="%"?"% vol":"ppm";
+$("read").innerHTML=(g.st<1?v.toFixed(1):v)+"<span>"+ut+"</span>";
+$("fill").style.width=(v/g.max*100)+"%";$("st").textContent=l[2][L];$("face").textContent=FACE[l[1]];
+$("sm").textContent=g.s?T.sm[g.s][L]:cur=="h2s"?T.sm[v<1?"h0":v<100?"h1":"h2"][L]:T.sm.n[L];
+$("lel").style.display=g.lel?"":"none";if(g.lel)$("lel").textContent="LEL: "+Math.round(v/g.lel*100)+"%";
+$("det").classList.toggle("shake",l[1]>=4)}
+function pick(k,keep){cur=k;const g=G[k],r=$("rng");r.max=g.max;r.step=g.st;if(!keep)r.value=g.def||0;
+$("tabs").innerHTML=Object.keys(G).map(x=>`<button class="ltr" aria-pressed="${x==k}" data-k="${x}">${G[x].f}</button>`).join("");
+$("gn").textContent=g.rev?g.n[L]:g.n[1];$("gi").textContent=g.p[L];$("gsrc").textContent=t("srcp")+" "+g.src;
+$("chips").innerHTML=g.lv.filter(l=>l[0]>0||g.rev).map(l=>`<button class="ltr" data-v="${l[0]}">${l[0]}${g.u=="%"?"%":""}</button>`).join("");upd()}
+$("tabs").onclick=e=>{if(e.target.dataset.k)pick(e.target.dataset.k)};
+$("chips").onclick=e=>{if(e.target.dataset.v){$("rng").value=e.target.dataset.v;upd()}};
+$("rng").oninput=upd;
+
+/* ---- gas cloud lab ---- */
+const LAB=[["CH₄",.55,"#e67e22"],["CO",.97,"#8e44ad"],["H₂S",1.19,"#b8a000"],["C₃H₈",1.55,"#2980b9"],["CO₂",1.53,"#6c7a89"]];
+let lg=0,lon=false,P=[];const cx=$("cv").getContext("2d");
+function labUI(){$("lg").innerHTML=LAB.map((x,i)=>`<button class="ltr" aria-pressed="${i==lg}" data-i="${i}">${x[0]}</button>`).join("");
+const d=LAB[lg][1];$("ld").textContent=t("dens")+": "+d+" · "+(d<.9?t("rises"):d>1.1?t("sinks"):t("mixes"));
+$("lb").textContent=lon?t("leak_off"):t("leak_on")}
+$("lg").onclick=e=>{if(e.target.dataset.i!=null){lg=+e.target.dataset.i;P=[];labUI()}};
+$("lb").onclick=()=>{lon=!lon;labUI()};$("lr").onclick=()=>{P=[];lon=false;labUI()};
+function labFrame(){const W=600,H=300,fy=H-26,d=LAB[lg][1],col=LAB[lg][2];
+cx.clearRect(0,0,W,H);cx.fillStyle=css("--roomBg");cx.fillRect(0,0,W,H);
+cx.fillStyle="#9aa8a1";cx.fillRect(0,fy,W,26);cx.fillStyle="#7b8a83";cx.fillRect(0,0,W,10);
+cx.fillStyle="#5b6b64";cx.fillRect(0,H*.5-8,46,16);cx.fillStyle="#e74c3c";cx.beginPath();cx.arc(30,H*.5-12,7,0,7);cx.fill();
+if(lon&&P.length<450)for(let i=0;i<3;i++)P.push({x:50,y:H*.5+(Math.random()-.5)*8,vx:1+Math.random()*1.8});
+let sy=0;P.forEach(p=>{p.vx*=.985;p.x+=p.vx+(Math.random()-.5)*.9;p.y+=(d-1)*1.7+(Math.random()-.5)*1.1;
+if(p.x>W-10){p.x=W-10;p.vx=-Math.abs(p.vx)}if(p.x<12)p.x=12;if(p.y<14)p.y=14;if(p.y>fy-6)p.y=fy-6;sy+=p.y});
+cx.fillStyle=col;cx.globalAlpha=.4;P.forEach(p=>{cx.beginPath();cx.arc(p.x,p.y,6,0,7);cx.fill()});cx.globalAlpha=1;
+if(P.length>20){const ay=sy/P.length;cx.setLineDash([6,5]);cx.strokeStyle=col;cx.lineWidth=2;cx.beginPath();cx.moveTo(0,ay);cx.lineTo(W,ay);cx.stroke();cx.setLineDash([])}
+const dy=(fy-18)-(+$("ldh").value)/100*(fy-46),dx=W-44;let n=0;P.forEach(p=>{if(Math.hypot(p.x-dx,p.y-dy)<50)n++});
+cx.fillStyle="#fff";cx.strokeStyle=css("--g2");cx.lineWidth=3;cx.fillRect(dx-18,dy-16,36,32);cx.strokeRect(dx-18,dy-16,36,32);
+cx.fillStyle=n>=3?"#d62839":css("--g2");cx.beginPath();cx.arc(dx,dy,6,0,7);cx.fill();
+$("lr2").textContent=n>=3?t("det_ok"):t("det_no");$("lr2").style.color=n>=3?"var(--s0)":"var(--mute)";
+requestAnimationFrame(labFrame)}
+
+/* ---- flammable range ---- */
+const FL=[["CH₄",5,15],["C₃H₈",2.1,9.5],["C₆H₆",1.2,7.8],["CO",12.5,74]];let fi=0;
+function fui(){const f=FL[fi],lo=f[1],hi=f[2],mx=+(hi*1.25).toFixed(1),r=$("fr");
+if(+r.max!=mx){r.max=mx;r.step=mx>30?.5:.1;if(+r.value>mx)r.value=0}
+const v=+r.value,X=u=>20+u/mx*260,A=(i,a,b)=>{$(i).setAttribute(a,b)};
+$("fg").innerHTML=FL.map((x,i)=>`<button class="ltr" aria-pressed="${i==fi}" data-i="${i}">${x[0]}</button>`).join("");
+A("z1","width",X(lo)-20);A("z2","x",X(lo));A("z2","width",X(hi)-X(lo));A("z3","x",X(hi));A("z3","width",280-X(hi));
+A("lt","x",X(lo));$("lt").textContent="LEL "+lo+"%";A("ut","x",Math.min(X(hi),262));$("ut").textContent="UEL "+hi+"%";
+A("mk","x1",X(v));A("mk","x2",X(v));const z=v<lo?"lean":v<=hi?"in":"rich";
+$("fire").setAttribute("transform","translate("+X(v)+" 46) scale(1.3)");$("fire").style.opacity=z=="in"?1:.12;
+$("fv").textContent=f[0]+": "+v.toFixed(1)+"% vol";$("fst").textContent=t("fl_"+z);$("fst").style.color="var("+(z=="in"?"--s3":z=="rich"?"--s2":"--s1")+")"}
+$("fg").onclick=e=>{if(e.target.dataset.i!=null){fi=+e.target.dataset.i;$("fr").value=0;fui()}};$("fr").oninput=fui;
+
+/* ---- ventilation dilution ---- */
+function vui(){const V=+$("vv").value,Q=+$("vq").value,C0=+$("vc").value,Ct=Math.min(+$("vt").value,C0);
+$("vvv").textContent=V+" m³";$("vqv").textContent=Q+" m³/min";$("vcv").textContent=C0+" ppm";$("vtv").textContent=Ct+" ppm";
+const k=Q/V,tr=Ct>=C0?0:Math.log(C0/Ct)/k,Tm=Math.max(tr*1.5,1),pts=[];
+for(let i=0;i<=60;i++)pts.push((30+260*i/60).toFixed(1)+","+(120-110*Math.exp(-k*Tm*i/60)).toFixed(1));
+$("vl").setAttribute("points",pts.join(" "));const yt=120-110*Ct/C0;
+$("vtl").setAttribute("y1",yt);$("vtl").setAttribute("y2",yt);const xt=30+260*tr/Tm;$("vx").setAttribute("x1",xt);$("vx").setAttribute("x2",xt);
+$("vte").textContent=Tm.toFixed(1);
+$("vr").textContent=t("v_ach")+": "+(k*60).toFixed(1)+" · "+t("v_time")+": "+tr.toFixed(1)+" min"}
+["vv","vq","vc","vt"].forEach(i=>$(i).oninput=vui);
+
+/* ---- gas chromatography ---- */
+const GC=[["CH₄",1,.05,12000],["C₂H₆",2,.25,17000],["C₃H₈",3,.9,22000],["i-C₄",4,2.5,26000],["n-C₄",4,3.3,27000],["n-C₅",5,11,32000]];
+const GS=[[94,3.5,1.5,.4,.4,.2],[75,12,7,2,2.5,1.5],[.5,2,60,12,24,1.5]];
+let gsi=0,gprog=1,grun=false,gt0=0;
+function gcCalc(){const T0=+$("gt").value+273.15,F=+$("gf").value,tm=2.4/F;
+return GC.map((c,i)=>{const k=c[2]*Math.exp(c[3]/8.314*(1/T0-1/313.15)),tr=tm*(1+k);return{n:c[0],tr:tr,sg:tr/100,rf:c[1],x:GS[gsi][i],area:GS[gsi][i]*c[1]}})}
+function gcdraw(){const Q=gcCalc(),X0=30,X1=312,Y0=146,Yt=14,tmax=Math.max(...Q.map(p=>p.tr))*1.15,z=+$("gz").value;
+const H=p=>p.area/(p.sg*2.5066),hmax=Math.max(...Q.map(H)),sx=u=>X0+(X1-X0)*u/tmax,sy=h=>Y0-(Y0-Yt)*Math.min(1,h/hmax*z*.95);
+const lim=grun?gprog:1,n=2400;let d="";
+for(let i=0;i<=n;i++){const u=tmax*i/n;if(u>tmax*lim)break;let y=0;Q.forEach(p=>{y+=H(p)*Math.exp(-.5*((u-p.tr)/p.sg)**2)});d+=(i?"L":"M")+sx(u).toFixed(1)+","+sy(y).toFixed(1)}
+let o=`<line x1="${X0}" y1="${Y0}" x2="${X1}" y2="${Y0}" stroke="var(--mute)" stroke-width="2"/><line x1="${X0}" y1="${Yt-6}" x2="${X0}" y2="${Y0}" stroke="var(--mute)" stroke-width="2"/>`;
+const st=tmax>40?10:tmax>15?5:tmax>6?2:1;
+for(let u=0;u<=tmax;u+=st)o+=`<line x1="${sx(u)}" y1="${Y0}" x2="${sx(u)}" y2="${Y0+4}" stroke="var(--mute)"/><text x="${sx(u)}" y="${Y0+15}" font-size="9" text-anchor="middle" fill="var(--mute)">${u}</text>`;
+o+=`<text x="${X1}" y="166" font-size="9" text-anchor="end" fill="var(--mute)">min</text>`;
+o+=`<path d="${d}" fill="none" stroke="var(--g2)" stroke-width="1.6"/>`;
+Q.forEach(p=>{if(p.tr<tmax*lim)o+=`<text x="${sx(p.tr)}" y="${Math.max(11,sy(H(p))-4)}" font-size="9" text-anchor="middle" fill="var(--ink)" style="direction:ltr">${p.n}</text>`});
+$("gcv").innerHTML=o;$("gcd").setAttribute("cx",34+232*(grun?gprog:0));$("gcd").style.opacity=grun?1:0;return Q}
+function gcui(){const Q=gcCalc();
+$("gcs").innerHTML=T.gcs.map((x,i)=>`<button aria-pressed="${i==gsi}" data-i="${i}">${x[L]}</button>`).join("");
+$("gtv").textContent=$("gt").value+" °C";$("gct").textContent=$("gt").value+" °C";$("gfv").textContent=(+$("gf").value).toFixed(1)+" mL/min";$("gzv").textContent="×"+$("gz").value;
+const rs=(Q[4].tr-Q[3].tr)/(2*(Q[3].sg+Q[4].sg)),ok=rs>=1.5;
+$("gcr").textContent=t("gc_rs")+": "+rs.toFixed(2)+" "+(ok?"✓ "+t("gc_ok"):"✗ "+t("gc_no"))+" · "+t("gc_time")+": "+Q[5].tr.toFixed(1)+" min";
+$("gcr").style.color="var("+(ok?"--s0":"--s3")+")";
+const sa=Q.reduce((a,p)=>a+p.area,0);
+$("gtb").innerHTML=`<tr><th>${t("gc_c")}</th><th>${t("gc_a")}</th><th>${t("gc_m")}</th></tr>`+Q.map(p=>`<tr><td class="ltr">${p.n}</td><td>${(p.area/sa*100).toFixed(1)}</td><td>${p.x.toFixed(1)}</td></tr>`).join("");
+$("gci").textContent=grun?t("gc_run"):t("gc_inj");gcdraw()}
+["gt","gf","gz"].forEach(i=>$(i).oninput=gcui);
+$("gcs").onclick=e=>{if(e.target.dataset.i!=null){gsi=+e.target.dataset.i;gcui()}};
+function gloop(now){gprog=Math.min(1,(now-gt0)/7000);if(gprog>=1)grun=false;$("gci").textContent=grun?t("gc_run"):t("gc_inj");gcdraw();if(grun)requestAnimationFrame(gloop)}
+$("gci").onclick=()=>{if(grun)return;grun=true;gprog=0;gt0=performance.now();requestAnimationFrame(gloop)};
+
+/* ---- safety procedures ---- */
+let sc=0,si=0;
+function sui(){const n=ST[sc].length;
+$("stabs").innerHTML=["sc1","sc2"].map((k,i)=>`<button aria-pressed="${i==sc}" data-i="${i}">${t(k)}</button>`).join("");
+$("h1").style.display=sc?"none":"";$("h2").style.display=sc?"":"none";$("cloud").style.opacity=.85*(1-si/n);
+$("mt").style.width=((1-si/n)*100)+"%";$("sn").textContent=si+"/"+n;
+$("sb1").textContent=t("pv");$("sb2").textContent=t("nt");$("sb1").disabled=si==0;$("sb2").disabled=si==n;
+$("sd").innerHTML=ST[sc].map((s,i)=>`<li class="${i<si?"done":i==si?"cur":""}"><b>${i+1}. ${s[0][L]}</b>${i<=si&&i<n?`<small>${s[1][L]}</small>`:""}</li>`).join("");
+$("sfb").textContent=si==n?t("st_done"):"";$("sfb").style.color="var(--s0)"}
+$("stabs").onclick=e=>{if(e.target.dataset.i!=null){sc=+e.target.dataset.i;si=0;sui()}};
+$("sb1").onclick=()=>{si=Math.max(0,si-1);sui()};$("sb2").onclick=()=>{si=Math.min(ST[sc].length,si+1);sui()};
+
+/* ---- quiz ---- */
+let qi=0,qs=0;
+function quiz(){const el=$("qz");if(qi>=QS.length){el.innerHTML=`<h3>${t("sc")}: ${qs}/${QS.length} </h3><button class="btn nx" id="ag">${t("ag")}</button>`;$("ag").onclick=()=>{qi=0;qs=0;quiz()};return}
+const d=QS[qi];el.innerHTML=`<h3>${qi+1}/${QS.length} · ${d[0][L]}</h3><div class="o">${d[1][L].map((o,i)=>`<button data-i="${i}">${o}</button>`).join("")}</div><p class="exp" id="ex"></p>`;
+el.querySelectorAll(".o button").forEach(b=>b.onclick=()=>{if(el.dataset.d==qi)return;el.dataset.d=qi;const i=+b.dataset.i;
+el.querySelectorAll(".o button").forEach((x,j)=>{if(j==d[2])x.classList.add("ok");else if(j==i)x.classList.add("no")});
+if(i==d[2])qs++;$("ex").textContent=d[3][L];const n=document.createElement("button");n.className="btn nx";n.textContent=qi==QS.length-1?t("res"):t("nx");n.onclick=()=>{qi++;quiz()};el.appendChild(n)})}
+
+const SRC=[
+[["كبريتيد الهيدروجين H₂S","Hydrogen sulfide (H₂S)","هایدرۆجین سەڵفاید H₂S"],"OSHA – Hydrogen Sulfide: Hazards","https://www.osha.gov/hydrogen-sulfide/hazards"],
+[["كبريتيد الهيدروجين H₂S","Hydrogen sulfide (H₂S)","هایدرۆجین سەڵفاید H₂S"],"NIOSH Pocket Guide – Hydrogen sulfide","https://www.cdc.gov/niosh/npg/npgd0337.html"],
+[["كبريتيد الهيدروجين H₂S","Hydrogen sulfide (H₂S)","هایدرۆجین سەڵفاید H₂S"],"NIOSH IDLH documentation – Hydrogen sulfide","https://www.cdc.gov/niosh/idlh/7783064.html"],
+[["أول أكسيد الكربون CO","Carbon monoxide (CO)","کاربۆن مۆنۆکسید CO"],"NIOSH Pocket Guide – Carbon monoxide","https://www.cdc.gov/niosh/npg/npgd0105.html"],
+[["أول أكسيد الكربون CO","Carbon monoxide (CO)","کاربۆن مۆنۆکسید CO"],"NIOSH IDLH documentation – Carbon monoxide","https://www.cdc.gov/niosh/idlh/630080.html"],
+[["أول أكسيد الكربون CO","Carbon monoxide (CO)","کاربۆن مۆنۆکسید CO"],"Virginia Tech EHSS – effects of CO exposure","https://ehss.vt.edu/detail_pages/faq_details.php?faq_id=143"],
+[["ثاني أكسيد الكربون CO₂","Carbon dioxide (CO₂)","کاربۆن دای ئۆکسید CO₂"],"NIOSH Pocket Guide – Carbon dioxide","https://www.cdc.gov/niosh/npg/npgd0103.html"],
+[["ثاني أكسيد الكربون CO₂","Carbon dioxide (CO₂)","کاربۆن دای ئۆکسید CO₂"],"U.S. DOE PAC database – Carbon dioxide","https://edms3.energy.gov/pac/search/detail/3426"],
+[["ثاني أكسيد الكبريت SO₂","Sulfur dioxide (SO₂)","سەڵفەر دای ئۆکسید SO₂"],"NIOSH Pocket Guide – Sulfur dioxide","https://www.cdc.gov/niosh/npg/npgd0575.html"],
+[["ثاني أكسيد الكبريت SO₂","Sulfur dioxide (SO₂)","سەڵفەر دای ئۆکسید SO₂"],"NIOSH IDLH documentation – Sulfur dioxide","https://www.cdc.gov/niosh/idlh/7446095.html"],
+[["Benzene C₆H₆","Benzene (C₆H₆)","Benzene C₆H₆"],"NIOSH Pocket Guide – Benzene","https://www.cdc.gov/niosh/npg/npgd0049.html"],
+[["Benzene C₆H₆","Benzene (C₆H₆)","Benzene C₆H₆"],"NIOSH IDLH documentation – Benzene","https://www.cdc.gov/niosh/idlh/71432.html"],
+[["البروبان C₃H₈ وLPG","Propane (C₃H₈) and LPG","پرۆپان C₃H₈ و LPG"],"NIOSH Pocket Guide – Propane","https://www.cdc.gov/niosh/npg/npgd0524.html"],
+[["البروبان C₃H₈ وLPG","Propane (C₃H₈) and LPG","پرۆپان C₃H₈ و LPG"],"OSHA Chemical Database – Liquefied petroleum gas","https://www.osha.gov/chemicaldata/484"],
+[["الميثان CH₄","Methane (CH₄)","میسان CH₄"],"NOAA CAMEO Chemicals – Methane datasheet","https://cameochemicals.noaa.gov/chris/MTH.pdf"],
+[["الميثان CH₄","Methane (CH₄)","میسان CH₄"],"ILO/IPCS International Chemical Safety Card 0291 (Methane)","https://training.itcilo.org/actrav_cdrom2/en/osh/ic/74828.htm"],
+[["الأكسجين والحيّز المغلق","Oxygen and confined spaces","ئۆکسجین و شوێنی داخراو"],"OSHA 29 CFR 1910.146 – Permit-required confined spaces","https://www.osha.gov/laws-regs/regulations/standardnumber/1910/1910.146"],
+[["الأكسجين والحيّز المغلق","Oxygen and confined spaces","ئۆکسجین و شوێنی داخراو"],"OSHA letter of interpretation – order of atmospheric testing","https://www.osha.gov/laws-regs/standardinterpretations/1994-07-13"],
+[["الأكسجين والحيّز المغلق","Oxygen and confined spaces","ئۆکسجین و شوێنی داخراو"],"OSHA-funded handout – effects of oxygen concentration","https://www.osha.gov/sites/default/files/2018-12/fy15_sh-27664-sh5_Confined_Space_Handout_Effects_of_Oxygen.pdf"],
+[["الكروماتوغرافيا","Chromatography","کرۆماتۆگرافی"],"ASTM D1945 – Analysis of natural gas by gas chromatography","https://store.astm.org/d1945-25.html"],
+[["الكروماتوغرافيا","Chromatography","کرۆماتۆگرافی"],"Scanlon & Willis (1985), J. Chromatogr. Sci. 23(8):333–340 – FID effective carbon number",""]
+];
+/* ---- page ---- */
+function render(){const R=document.documentElement;R.lang=LC[L];R.dir=DIR[L];
+document.querySelectorAll("[data-t]").forEach(e=>e.textContent=t(e.dataset.t));
+document.title=t("title")+" | Sozdar Avdal";
+$("nav").innerHTML=["sim","lab","flam","vent","gc","steps","quiz","src"].map((k,i)=>`<a href="#${k}">${T.n[i][L]}</a>`).join("");
+document.querySelectorAll("#lang button").forEach(b=>b.setAttribute("aria-pressed",+b.dataset.l==L));
+$("shr").textContent=t("share");$("srcl").innerHTML=SRC.map(x=>`<li><b>${x[0][L]}</b>: ${x[2]?`<a class="ltr" href="${x[2]}" target="_blank" rel="noopener noreferrer">${x[1]}</a>`:`<span class="ltr">${x[1]}</span>`}</li>`).join("");pick(cur,1);labUI();fui();vui();gcui();sui();quiz()}
+$("lang").onclick=e=>{if(e.target.dataset.l!=null){L=+e.target.dataset.l;render()}};
+$("thm").onclick=()=>{const R=document.documentElement,d=R.dataset.theme=="dark"?"light":"dark";R.dataset.theme=d;$("thm").textContent=d=="dark"?"☀️":"🌙";upd()};
+$("shr").onclick=async()=>{const d={title:document.title,url:location.href};try{if(navigator.share)await navigator.share(d);else{await navigator.clipboard.writeText(location.href);$("shr").textContent=t("copied")}}catch(_){}};
+$("fl1").innerHTML=flag(38);$("fl2").innerHTML=flag(34);
+render();labFrame();
+</script>
+</body>
+</html>
